@@ -19,11 +19,11 @@ public class Navigation : MonoBehaviour
     {
         agent.destination = palyer.position;
 
-        agent.s
+        //agent.s
     }
 
     private void GoToTarget()
     {
-        agent.
+        //agent.
     }
 }
