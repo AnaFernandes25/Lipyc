@@ -19,7 +19,7 @@ MonoBehaviour:
     width: 1920
     height: 989
   m_ShowMode: 4
-  m_Title: Scene
+  m_Title: Project
   m_RootView: {fileID: 3}
   m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
@@ -731,9 +731,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 213.58583, y: 25.764223, z: 329.6052}
+    m_Target: {x: 209.46727, y: 26.648659, z: 320.3891}
     speed: 2
-    m_Value: {x: 213.58583, y: 25.764223, z: 329.6052}
+    m_Value: {x: 209.46727, y: 26.648659, z: 320.3891}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -781,11 +781,11 @@ MonoBehaviour:
   m_Rotation:
     m_Target: {x: 0.0059905024, y: 0.5435642, z: 0.0039972067, w: -0.83942056}
     speed: 2
-    m_Value: {x: 0.0022155433, y: 0.54227877, z: 0.0015472204, w: -0.84019434}
+    m_Value: {x: 0.0059905024, y: 0.5435642, z: 0.0039972067, w: -0.83942056}
   m_Size:
-    m_Target: 33.561256
+    m_Target: 68.113976
     speed: 2
-    m_Value: 35.142677
+    m_Value: 68.1651
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -1132,14 +1132,14 @@ MonoBehaviour:
   m_LastFolders:
   - Assets
   m_LastFoldersGridSize: -1
-  m_LastProjectPath: C:\Users\Ana\Desktop\Mapa
+  m_LastProjectPath: C:\Users\Ana\Documents\GitHub\Lipyc\Mapa
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 7.8000183}
-    m_SelectedIDs: da5f0000
-    m_LastClickedID: 24538
-    m_ExpandedIDs: 00000000da5f0000dc5f0000de5f0000e05f0000e25f0000e45f0000e65f0000e85f0000ea5f0000ec5f0000ee5f0000f05f0000f25f0000f45f0000f65f0000f85f0000fa5f0000fc5f000000ca9a3bffffff7f
+    m_SelectedIDs: 46600000
+    m_LastClickedID: 24646
+    m_ExpandedIDs: 0000000046600000486000004a6000004c6000004e60000050600000526000005460000056600000586000005a6000005c6000005e600000606000006260000064600000666000006860000000ca9a3bffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1167,7 +1167,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000da5f0000dc5f0000de5f0000e05f0000e25f0000e45f0000e65f0000e85f0000ea5f0000ec5f0000ee5f0000f05f0000f25f0000f45f0000f65f0000f85f0000fa5f0000fc5f0000
+    m_ExpandedIDs: 0000000046600000486000004a6000004c6000004e60000050600000526000005460000056600000586000005a6000005c6000005e6000006060000062600000646000006660000068600000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1194,7 +1194,7 @@ MonoBehaviour:
   m_ListAreaState:
     m_SelectedInstanceIDs: 
     m_LastClickedInstanceID: 0
-    m_HadKeyboardFocusLastEvent: 0
+    m_HadKeyboardFocusLastEvent: 1
     m_ExpandedInstanceIDs: 3a8a0000888a0000bc9500005a9400000662000000000000666f0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
