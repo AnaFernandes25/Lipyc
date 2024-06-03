@@ -1,15 +1,25 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Collectibles : MonoBehaviour
 {
-    float quantidade = 0;
+    [SerializeField] Text texto;
+    [SerializeField] GameObject player;
+    [SerializeField] bool isCheckPoint = false;
+    float quantidadeluz = 0;
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
-        {
-            quantidade = quantidade + 1;
+        {  
+            quantidadeluz += 1;
+            if (isCheckPoint == true)
+            {
+                player.transform.position = gameObject.transform.position;
+            }
+            texto.text = "Luzes:" + quantidadeluz;
             Destroy(gameObject);
         }
     }
