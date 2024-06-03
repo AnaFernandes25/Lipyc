@@ -8,6 +8,7 @@ TagManager:
   - inimigo
   - Enemy
   - Reward
+  - Checkpoint
   layers:
   - Default
   - TransparentFX

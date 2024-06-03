@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class player : MonoBehaviour
+public class Player : MonoBehaviour
 {
     public Animator playerAnim;
     public Rigidbody rb;
@@ -14,11 +14,11 @@ public class player : MonoBehaviour
     private bool isGrounded;
     public LayerMask whatIsGround;
     bool readyToJump = true;
-
+    Vector3 checkpointPosition;
     public string nivelACarregarLost;
     public string nivelACarregarWin; // Adicionado para carregar nível quando jogador ganhar
     public Transform respawnPoint;
-    private int vidasIniciais = 4;
+    private int vidasIniciais = 3;
     public List<Image> vidas;
 
     private int rewardsCollected = 0; // Contador de recompensas
@@ -28,6 +28,8 @@ public class player : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         ResetJump();
+        LoadCheckpoint();
+        playerTrans.position = checkpointPosition;
     }
 
     void FixedUpdate()
@@ -56,6 +58,11 @@ public class player : MonoBehaviour
         if (collision.gameObject.CompareTag("Enemy"))
         {
             HandleDamage();
+        }
+        if (collision.gameObject.CompareTag("Checkpoint"))
+        {
+        checkpointPosition = collision.transform.position;
+        SaveCheckpoint();
         }
     }
 
@@ -144,7 +151,7 @@ public class player : MonoBehaviour
             playerAnim.SetTrigger("attack2");
         }
     }
-
+    
     private void HandleDamage()
     {
         if (vidasIniciais > 0)
@@ -155,12 +162,9 @@ public class player : MonoBehaviour
 
         if (vidasIniciais == 0)
         {
-            SceneManager.LoadScene(nivelACarregarLost);
+            ReloadScene();
         }
-        else
-        {
-            transform.position = respawnPoint.position;
-        }
+        
     }
 
     private void ResetJump()
@@ -176,19 +180,36 @@ public class player : MonoBehaviour
         }
         else if (other.tag == "Checkpoint")
         {
-            respawnPoint.position = transform.position;
+            checkpointPosition = other.transform.position;
+            SaveCheckpoint();
         }
     }
 
-    public void CollectReward(GameObject reward)
+    private void ReloadScene()
     {
-        rewardsCollected++;
-        Destroy(reward); // Destruir a recompensa coletada
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
 
-        // Verifica se o jogador coletou todas as recompensas
-        if (rewardsCollected >= totalRewards)
+    private void SaveCheckpoint()
+    {
+        PlayerPrefs.SetFloat("CheckpointX", checkpointPosition.x);
+        PlayerPrefs.SetFloat("CheckpointY", checkpointPosition.y);
+        PlayerPrefs.SetFloat("CheckpointZ", checkpointPosition.z);
+        PlayerPrefs.Save();
+    }
+
+    private void LoadCheckpoint()
+    {
+        if (PlayerPrefs.HasKey("CheckpointX"))
         {
-            SceneManager.LoadScene(nivelACarregarWin);
+            float x = PlayerPrefs.GetFloat("CheckpointX");
+            float y = PlayerPrefs.GetFloat("CheckpointY");
+            float z = PlayerPrefs.GetFloat("CheckpointZ");
+            checkpointPosition = new Vector3(x, y, z);
+        }
+        else
+        {
+            checkpointPosition = respawnPoint.position;
         }
     }
 }
