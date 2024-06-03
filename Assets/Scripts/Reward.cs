@@ -10,6 +10,7 @@ public class RewardPickup : MonoBehaviour
         rewardPickupEffect = GetComponent<AudioSource>();
     }
 
+    
     void OnTriggerEnter(Collider other)
     {
         if (other.GetComponent<player>() == null) // Verifica se o jogador colidiu com a recompensa
