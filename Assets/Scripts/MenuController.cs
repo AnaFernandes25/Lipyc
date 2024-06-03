@@ -7,6 +7,7 @@ public class MenuController : MonoBehaviour
 {
     public VideoPlayer videoPlayer;
     public GameObject menuOpcoes, rawImage;
+    public AudioSource selectSound;
     public Animator animatorRawImage;
 
     // Start is called before the first frame update
@@ -21,6 +22,7 @@ public class MenuController : MonoBehaviour
     {
         if (!videoPlayer.isPlaying && Input.anyKeyDown)
         {
+            selectSound.Play();
             videoPlayer.Play();
             rawImage.SetActive(true);
             animatorRawImage.SetTrigger("fadein");
