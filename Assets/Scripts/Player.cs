@@ -10,7 +10,7 @@ public class Player : MonoBehaviour
     public Rigidbody rb;
     public float w_speed, wb_speed, olw_speed, rn_speed, ro_speed, jumpForce, playerHeight;
     public bool walking;
-    public Transform playerTrans;
+    public Transform playerTrans; // Assegure-se de que este esteja corretamente referenciado no inspetor
     private bool isGrounded;
     public LayerMask whatIsGround;
     bool readyToJump = true;
@@ -28,6 +28,7 @@ public class Player : MonoBehaviour
     public float dashDuration = 0.5f; // Duração do dash em segundos
 
     private float originalSpeed; // Para armazenar a velocidade original
+    private Coroutine waterDamageCoroutine; // Coroutine para dano na água
 
     void Start()
     {
@@ -186,6 +187,35 @@ public class Player : MonoBehaviour
         {
             checkpointPosition = other.transform.position;
             SaveCheckpoint();
+        }
+        else if (other.tag == "agua")
+        {
+            HandleDamage();
+            if (waterDamageCoroutine == null)
+            {
+                waterDamageCoroutine = StartCoroutine(WaterDamage());
+            }
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.tag == "agua")
+        {
+            if (waterDamageCoroutine != null)
+            {
+                StopCoroutine(waterDamageCoroutine);
+                waterDamageCoroutine = null;
+            }
+        }
+    }
+
+    private IEnumerator WaterDamage()
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(5);
+            HandleDamage();
         }
     }
 
