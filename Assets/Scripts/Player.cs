@@ -124,7 +124,7 @@ public class player : MonoBehaviour
 
         isGrounded = Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.5f + 0.2f, whatIsGround);
 
-        // Pulo
+        // Salto
         if (Input.GetKeyDown(KeyCode.Space) && isGrounded && readyToJump)
         {
             rb.velocity = new Vector3(rb.velocity.x, 0f, rb.velocity.z); // Zera apenas a velocidade Y
