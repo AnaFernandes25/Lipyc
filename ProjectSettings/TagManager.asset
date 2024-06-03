@@ -8,6 +8,7 @@ TagManager:
   - inimigo
   - Reward
   - Checkpoint
+  - agua
   layers:
   - Default
   - TransparentFX
