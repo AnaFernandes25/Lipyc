@@ -5,21 +5,26 @@ using UnityEngine.UI;
 
 public class Collectibles : MonoBehaviour
 {
-    [SerializeField] Text texto;
-    [SerializeField] GameObject player;
-    [SerializeField] bool isCheckPoint = false;
-    float quantidadeluz = 0;
+    public int pointToAdd;
+    private AudioSource RewardPickupEffect;
 
-    private void OnTriggerEnter(Collider other)
+    void Start()
     {
-        if (other.CompareTag("Player"))
-        {
-            quantidadeluz += 1;
-            if (isCheckPoint == true)
-            {
-                player.transform.position = gameObject.transform.position;
-            }
-            Destroy(gameObject);
-        }
+        RewardPickupEffect = GetComponent<AudioSource>();
+    }
+
+    void OnTriggerEnter(Collider other)
+    {
+        Debug.Log(other);
+        if (other.GetComponent<Player>() == null)
+            return;
+
+        ScoreManager.AddPoints(pointToAdd);
+
+        RewardPickupEffect.Play(); // Toca o som
+
+        GetComponentInChildren<MeshRenderer>().enabled = false; // Desativa o componente MeshRenderer
+
+        Destroy(gameObject, 1.0f); // Destrói o objeto após 1 segundo
     }
 }
