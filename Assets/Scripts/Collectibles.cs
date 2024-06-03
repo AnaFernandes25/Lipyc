@@ -19,7 +19,6 @@ public class Collectibles : MonoBehaviour
             {
                 player.transform.position = gameObject.transform.position;
             }
-            texto.text = "Luzes:" + quantidadeluz;
             Destroy(gameObject);
         }
     }

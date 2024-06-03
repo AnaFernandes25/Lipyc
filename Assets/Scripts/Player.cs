@@ -24,6 +24,8 @@ public class Player : MonoBehaviour
     private int rewardsCollected = 0; // Contador de recompensas
     public int totalRewards = 5; // Número total de recompensas necessárias para ganhar
 
+    //public float Dash = 3f; // Distancia do dash
+
     void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -61,8 +63,8 @@ public class Player : MonoBehaviour
         }
         if (collision.gameObject.CompareTag("Checkpoint"))
         {
-        checkpointPosition = collision.transform.position;
-        SaveCheckpoint();
+            checkpointPosition = collision.transform.position;
+            SaveCheckpoint();
         }
     }
 
@@ -119,6 +121,7 @@ public class Player : MonoBehaviour
             {
                 playerAnim.SetTrigger("dash");
                 playerAnim.ResetTrigger("walk");
+                DashForward(); // Chama a função de teletransporte
             }
             if (Input.GetKeyUp(KeyCode.LeftShift))
             {
@@ -149,7 +152,7 @@ public class Player : MonoBehaviour
             playerAnim.SetTrigger("attack2");
         }
     }
-    
+
     private void HandleDamage()
     {
         if (vidasIniciais > 0)
@@ -162,7 +165,7 @@ public class Player : MonoBehaviour
         {
             ReloadScene();
         }
-        
+
     }
 
     private void ResetJump()
@@ -210,4 +213,13 @@ public class Player : MonoBehaviour
             checkpointPosition = respawnPoint.position;
         }
     }
+
+    //private void DashForward()
+    //{
+    //    // Calcula a nova posição para o dash
+    //    Vector3 newPosition = transform.position + transform.forward * Dash;
+//
+    //    // Define a nova posição do jogador
+    //    transform.position = newPosition;
+    //}
 }
