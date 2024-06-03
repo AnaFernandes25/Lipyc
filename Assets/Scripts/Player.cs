@@ -53,7 +53,7 @@ public class player : MonoBehaviour
             isGrounded = true;
             readyToJump = true;
         }
-        if (collision.gameObject.CompareTag("Enemy"))
+        if (collision.gameObject.CompareTag("inimigo"))
         {
             HandleDamage();
         }
@@ -110,13 +110,11 @@ public class player : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.LeftShift))
             {
-                w_speed += rn_speed;
                 playerAnim.SetTrigger("dash");
                 playerAnim.ResetTrigger("walk");
             }
             if (Input.GetKeyUp(KeyCode.LeftShift))
             {
-                w_speed = olw_speed;
                 playerAnim.ResetTrigger("dash");
                 playerAnim.SetTrigger("walk");
             }
