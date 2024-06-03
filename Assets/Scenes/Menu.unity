@@ -181,7 +181,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Lypic and the Rise of the Night
+  m_text: "Lipyc e a Ascen\xE7\xE3o da Noite"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 706fbc0af5141ac49b1c4be22ea28396, type: 2}
   m_sharedMaterial: {fileID: 8379511910509282294, guid: 706fbc0af5141ac49b1c4be22ea28396, type: 2}
@@ -511,7 +511,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Exit Game
+  m_text: Sair do jogo
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 3d2353f53afe16745947b33ec47dfb94, type: 2}
   m_sharedMaterial: {fileID: 6652310039016257419, guid: 3d2353f53afe16745947b33ec47dfb94, type: 2}
@@ -667,6 +667,7 @@ GameObject:
   - component: {fileID: 490249592}
   - component: {fileID: 490249591}
   - component: {fileID: 490249590}
+  - component: {fileID: 490249593}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -748,6 +749,102 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &490249593
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 490249589}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 18473955c72eb5946bffd71368223144, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 1
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &634899748
 GameObject:
   m_ObjectHideFlags: 0
@@ -757,6 +854,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 634899749}
+  - component: {fileID: 634899750}
   m_Layer: 5
   m_Name: MenuOpcoes
   m_TagString: Untagged
@@ -788,6 +886,27 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0.049987793}
   m_SizeDelta: {x: 0, y: 0.1000061}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!95 &634899750
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 634899748}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 20eb76472ab08e24d968a6e6fa4fb8ad, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &736902226
 GameObject:
   m_ObjectHideFlags: 0
@@ -822,8 +941,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.19467102, y: 0.33130768}
   m_AnchorMax: {x: 0.83565795, y: 0.61115384}
-  m_AnchoredPosition: {x: 27.3, y: 2.1}
-  m_SizeDelta: {x: 106.17908, y: 53.049553}
+  m_AnchoredPosition: {x: 51.999996, y: 2.1000004}
+  m_SizeDelta: {x: 106.17901, y: 53.049553}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &736902228
 MonoBehaviour:
@@ -845,7 +964,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Lypic
+  m_text: 'Lipyc
 
 '
   m_isRightToLeft: 0
@@ -856,8 +975,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294915584
-  m_fontColor: {r: 0, g: 0.21300554, b: 1, a: 1}
+    rgba: 4294050047
+  m_fontColor: {r: 1, g: 0, b: 0.9490196, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -960,7 +1079,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.08232901, y: 0.28477663}
   m_AnchorMax: {x: 0.46965802, y: 0.33900002}
-  m_AnchoredPosition: {x: -0.5, y: -0.79999924}
+  m_AnchoredPosition: {x: -0.5, y: -0.80000305}
   m_SizeDelta: {x: -1.0556946, y: 0.577301}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &752150599
@@ -1056,6 +1175,7 @@ GameObject:
   - component: {fileID: 771819988}
   - component: {fileID: 771819990}
   - component: {fileID: 771819989}
+  - component: {fileID: 771819991}
   m_Layer: 5
   m_Name: RawImage
   m_TagString: Untagged
@@ -1117,6 +1237,27 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 771819987}
   m_CullTransparentMesh: 1
+--- !u!95 &771819991
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 771819987}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 5d05fb37d749ee84da897adf3eeaf11e, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &774625922
 GameObject:
   m_ObjectHideFlags: 0
@@ -1223,7 +1364,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.19467102, y: 0.33130768}
   m_AnchorMax: {x: 0.83565795, y: 0.61115384}
-  m_AnchoredPosition: {x: -4.4849243, y: 2.1192627}
+  m_AnchoredPosition: {x: 20.8, y: 2.1192627}
   m_SizeDelta: {x: 106.17908, y: 53.049553}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &822527793
@@ -1246,7 +1387,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Lypic
+  m_text: 'Lipyc
 
 '
   m_isRightToLeft: 0
@@ -1257,8 +1398,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294915584
-  m_fontColor: {r: 0, g: 0.21300554, b: 1, a: 1}
+    rgba: 4294050047
+  m_fontColor: {r: 1, g: 0, b: 0.9495187, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -1356,6 +1497,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   videoPlayer: {fileID: 774625924}
   menuOpcoes: {fileID: 634899748}
+  rawImage: {fileID: 771819987}
+  selectSound: {fileID: 1521053241}
+  animatorRawImage: {fileID: 0}
 --- !u!4 &869282529
 Transform:
   m_ObjectHideFlags: 0
@@ -1368,7 +1512,8 @@ Transform:
   m_LocalPosition: {x: 242.14876, y: 120.40851, z: -0.058925554}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1521053242}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &872701658
@@ -1428,7 +1573,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Load Game
+  m_text: Carregar jogo
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 3d2353f53afe16745947b33ec47dfb94, type: 2}
   m_sharedMaterial: {fileID: 6652310039016257419, guid: 3d2353f53afe16745947b33ec47dfb94, type: 2}
@@ -1541,7 +1686,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.086658016, y: 0.51531065}
   m_AnchorMax: {x: 0.46965802, y: 0.56931067}
-  m_AnchoredPosition: {x: -1.5, y: -0.8000002}
+  m_AnchoredPosition: {x: -1.5, y: -0.79999924}
   m_SizeDelta: {x: 0.9443054, y: 0.5773001}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1066999521
@@ -1684,7 +1829,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Lypic and the Rise of the Night
+  m_text: "Lipyc e Ascens\xE3o da noite "
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 706fbc0af5141ac49b1c4be22ea28396, type: 2}
   m_sharedMaterial: {fileID: 8379511910509282294, guid: 706fbc0af5141ac49b1c4be22ea28396, type: 2}
@@ -1818,7 +1963,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: New Game
+  m_text: Novo jogo
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 3d2353f53afe16745947b33ec47dfb94, type: 2}
   m_sharedMaterial: {fileID: 6652310039016257419, guid: 3d2353f53afe16745947b33ec47dfb94, type: 2}
@@ -1931,7 +2076,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.08232901, y: 0.638}
   m_AnchorMax: {x: 0.46965802, y: 0.6923107}
-  m_AnchoredPosition: {x: -0.5, y: 0.29999924}
+  m_AnchoredPosition: {x: -0.5, y: 0.30000305}
   m_SizeDelta: {x: -1.0556946, y: 0.577301}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1419354045
@@ -2123,6 +2268,134 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!1 &1521053240
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1521053242}
+  - component: {fileID: 1521053241}
+  m_Layer: 0
+  m_Name: SelectSound
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!82 &1521053241
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1521053240}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 1f43ed95a48c4044b96d49e7470eb2a3, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!4 &1521053242
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1521053240}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 869282529}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1616451164
 GameObject:
   m_ObjectHideFlags: 0
@@ -2158,8 +2431,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.34850648, y: 0}
   m_AnchorMax: {x: 0.6603421, y: 0.13953847}
-  m_AnchoredPosition: {x: 0, y: -0.30459595}
-  m_SizeDelta: {x: -1.3899002, y: -0.32900047}
+  m_AnchoredPosition: {x: -24.1, y: -5.378323}
+  m_SizeDelta: {x: 44.333652, y: 10.756646}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!95 &1616451166
 Animator:
@@ -2202,7 +2475,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: press any key to continue
+  m_text: pressione qualquer tecla para continuar
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 3d2353f53afe16745947b33ec47dfb94, type: 2}
   m_sharedMaterial: {fileID: 6652310039016257419, guid: 3d2353f53afe16745947b33ec47dfb94, type: 2}
@@ -2265,7 +2538,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: 0, y: 0, z: -36.743835, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -2430,9 +2703,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Options
-
-'
+  m_text: Opcoes
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 3d2353f53afe16745947b33ec47dfb94, type: 2}
   m_sharedMaterial: {fileID: 6652310039016257419, guid: 3d2353f53afe16745947b33ec47dfb94, type: 2}
