@@ -13,6 +13,8 @@ public class MenuController : MonoBehaviour
     public Animator animatorRawImage;
     public Button ButtonPlay;
 
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -36,6 +38,5 @@ public class MenuController : MonoBehaviour
     public void Play()
     {
         SceneManager.LoadScene("intro");
-
     }
 }
