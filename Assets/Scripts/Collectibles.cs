@@ -13,7 +13,7 @@ public class Collectibles : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
-        {  
+        {
             quantidadeluz += 1;
             if (isCheckPoint == true)
             {
