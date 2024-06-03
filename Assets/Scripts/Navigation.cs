@@ -5,10 +5,12 @@ using UnityEngine.AI;
 
 public class Navigation : MonoBehaviour
 {
-    [SerializeField] float damage;
+    private int vidasIniciais = 4;
     float lastAttackTime = 0;
     float attackCoolDown = 2;
     [SerializeField] float stoppingDistance;
+    [SerializeField] float followDistance = 2f; // Distância mínima para começar a seguir o player
+    [SerializeField] float stopFollowDistance = 5f; // Distância máxima para parar de seguir o player
     GameObject target;
     private NavMeshAgent agent;
     Animator anim;
@@ -21,18 +23,31 @@ public class Navigation : MonoBehaviour
         target = GameObject.FindGameObjectWithTag("Player");
     }
 
+    void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            HandleDamage();
+        }
+    }
+
     // Update is called once per frame
     private void Update()
     {
         float dist = Vector3.Distance(transform.position, target.transform.position);
+
         if (dist < stoppingDistance)
         {
             StopEnemy();
             Attack();
         }
-        else
+        else if (dist < followDistance)
         {
             GoToTarget();
+        }
+        else if (dist > stopFollowDistance)
+        {
+            StopEnemy();
         }
     }
 
@@ -55,7 +70,22 @@ public class Navigation : MonoBehaviour
         {
             lastAttackTime = Time.time;
             anim.SetTrigger("Attack");
-            //target.GetComponent<CharacterStats>().TakeDamage(damage);
+            //target.GetComponent<Player>().TakeDamage(damage);
         }
+    }
+
+    private void HandleDamage()
+    {
+        if (vidasIniciais > 0)
+        {
+            vidas[vidasIniciais - 1].gameObject.SetActive(false);
+            vidasIniciais--;
+        }
+
+        if (vidasIniciais == 0)
+        {
+            Destroy(inimigo);
+        }
+       
     }
 }
