@@ -3,14 +3,18 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Collectibles : MonoBehaviour
+public class Rewards : MonoBehaviour
 {
+
     public int pointToAdd;
-    private AudioSource RewardPickupEffect;
+
+    //private AudioSource RewardPickupEffect;
+
+
 
     void Start()
     {
-        RewardPickupEffect = GetComponent<AudioSource>();
+        //RewardPickupEffect = GetComponent<AudioSource>();
     }
 
     void OnTriggerEnter(Collider other)
@@ -21,7 +25,7 @@ public class Collectibles : MonoBehaviour
 
         ScoreManager.AddPoints(pointToAdd);
 
-        RewardPickupEffect.Play(); // Toca o som
+        //RewardPickupEffect.Play(); // Toca o som
 
         GetComponentInChildren<MeshRenderer>().enabled = false; // Desativa o componente MeshRenderer
 
