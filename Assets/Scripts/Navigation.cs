@@ -6,6 +6,7 @@ using UnityEngine.AI;
 public class Navigation : MonoBehaviour
 {
     private int vidasIniciais = 4;
+    [SerializeField] float damage;
     float lastAttackTime = 0;
     float attackCoolDown = 2;
     [SerializeField] float stoppingDistance;
@@ -23,13 +24,7 @@ public class Navigation : MonoBehaviour
         target = GameObject.FindGameObjectWithTag("Player");
     }
 
-    void OnCollisionEnter(Collision collision)
-    {
-        if (collision.gameObject.CompareTag("Player"))
-        {
-            HandleDamage();
-        }
-    }
+   
 
     // Update is called once per frame
     private void Update()
@@ -72,20 +67,5 @@ public class Navigation : MonoBehaviour
             anim.SetTrigger("Attack");
             //target.GetComponent<Player>().TakeDamage(damage);
         }
-    }
-
-    private void HandleDamage()
-    {
-        if (vidasIniciais > 0)
-        {
-            vidas[vidasIniciais - 1].gameObject.SetActive(false);
-            vidasIniciais--;
-        }
-
-        if (vidasIniciais == 0)
-        {
-            Destroy(inimigo);
-        }
-       
     }
 }
