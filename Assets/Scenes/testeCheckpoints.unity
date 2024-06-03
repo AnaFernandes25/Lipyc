@@ -145,7 +145,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4076717627030934219, guid: 30a71a9bd3d475e4e888ec6b17c6c558, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -37.8
+      value: -65.76
       objectReference: {fileID: 0}
     - target: {fileID: 4076717627030934219, guid: 30a71a9bd3d475e4e888ec6b17c6c558, type: 3}
       propertyPath: m_LocalRotation.w
@@ -495,6 +495,8 @@ MonoBehaviour:
   - {fileID: 854066117}
   - {fileID: 1727981476}
   totalRewards: 5
+  dashSpeedMultiplier: 2
+  dashDuration: 0.5
 --- !u!54 &507814595
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -734,6 +736,59 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 2.1002502, y: 3.6382904, z: 2.206585}
   m_Center: {x: 0.0037384033, y: -2.537346, z: 0.0110759735}
+--- !u!1 &654305539
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 654305541}
+  - component: {fileID: 654305540}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Checkpoint
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!65 &654305540
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 654305539}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 24.909027, y: 17.83873, z: 1}
+  m_Center: {x: 2.6796112, y: 0.5837631, z: 0}
+--- !u!4 &654305541
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 654305539}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 293.84, y: 144.89, z: -56.38}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &786960611
 GameObject:
   m_ObjectHideFlags: 0
@@ -910,7 +965,7 @@ GameObject:
   - component: {fileID: 1583407716}
   m_Layer: 0
   m_Name: Cube (2)
-  m_TagString: Enemy
+  m_TagString: inimigo
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1567,3 +1622,4 @@ SceneRoots:
   - {fileID: 507814599}
   - {fileID: 1583407719}
   - {fileID: 78829009}
+  - {fileID: 654305541}
