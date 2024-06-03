@@ -24,11 +24,15 @@ public class Player : MonoBehaviour
     private int rewardsCollected = 0; // Contador de recompensas
     public int totalRewards = 5; // Número total de recompensas necessárias para ganhar
 
-    //public float Dash = 3f; // Distancia do dash
+    public float dashSpeedMultiplier = 2f; // Fator de multiplicação da velocidade durante o dash
+    public float dashDuration = 0.5f; // Duração do dash em segundos
+
+    private float originalSpeed; // Para armazenar a velocidade original
 
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        originalSpeed = w_speed; // Salva a velocidade original
         ResetJump();
         LoadCheckpoint();
         playerTrans.position = checkpointPosition;
@@ -121,7 +125,7 @@ public class Player : MonoBehaviour
             {
                 playerAnim.SetTrigger("dash");
                 playerAnim.ResetTrigger("walk");
-                DashForward(); // Chama a função de teletransporte
+                StartCoroutine(Dash()); // Chama a função de dash
             }
             if (Input.GetKeyUp(KeyCode.LeftShift))
             {
@@ -165,7 +169,6 @@ public class Player : MonoBehaviour
         {
             ReloadScene();
         }
-
     }
 
     private void ResetJump()
@@ -214,12 +217,10 @@ public class Player : MonoBehaviour
         }
     }
 
-    //private void DashForward()
-    //{
-    //    // Calcula a nova posição para o dash
-    //    Vector3 newPosition = transform.position + transform.forward * Dash;
-//
-    //    // Define a nova posição do jogador
-    //    transform.position = newPosition;
-    //}
+    private IEnumerator Dash()
+    {
+        w_speed *= dashSpeedMultiplier; // Aumenta a velocidade
+        yield return new WaitForSeconds(dashDuration); // Espera pela duração do dash
+        w_speed = originalSpeed; // Retorna à velocidade original
+    }
 }

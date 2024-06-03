@@ -353,7 +353,7 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 589489a204d18fd4abd4658f6a120250, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 90438575}
+      addedObject: {fileID: 90438578}
   m_SourcePrefab: {fileID: 100100000, guid: 589489a204d18fd4abd4658f6a120250, type: 3}
 --- !u!4 &90438573 stripped
 Transform:
@@ -365,8 +365,8 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 589489a204d18fd4abd4658f6a120250, type: 3}
   m_PrefabInstance: {fileID: 90438572}
   m_PrefabAsset: {fileID: 0}
---- !u!154 &90438575
-TerrainCollider:
+--- !u!64 &90438578
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -380,11 +380,13 @@ TerrainCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
+  m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_TerrainData: {fileID: 15600000, guid: 9a9929126b786cd49985c67b33e54b2b, type: 2}
-  m_EnableTreeColliders: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4343901447002001154, guid: 589489a204d18fd4abd4658f6a120250, type: 3}
 --- !u!1 &104703496
 GameObject:
   m_ObjectHideFlags: 0
@@ -621,7 +623,7 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 589489a204d18fd4abd4658f6a120250, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 203745636}
+      addedObject: {fileID: 203745639}
   m_SourcePrefab: {fileID: 100100000, guid: 589489a204d18fd4abd4658f6a120250, type: 3}
 --- !u!4 &203745634 stripped
 Transform:
@@ -633,8 +635,8 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 589489a204d18fd4abd4658f6a120250, type: 3}
   m_PrefabInstance: {fileID: 203745633}
   m_PrefabAsset: {fileID: 0}
---- !u!154 &203745636
-TerrainCollider:
+--- !u!64 &203745639
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -648,11 +650,13 @@ TerrainCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
+  m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_TerrainData: {fileID: 15600000, guid: 9a9929126b786cd49985c67b33e54b2b, type: 2}
-  m_EnableTreeColliders: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4343901447002001154, guid: 589489a204d18fd4abd4658f6a120250, type: 3}
 --- !u!1001 &234931318
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -735,7 +739,7 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 589489a204d18fd4abd4658f6a120250, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 234931321}
+      addedObject: {fileID: 234931324}
   m_SourcePrefab: {fileID: 100100000, guid: 589489a204d18fd4abd4658f6a120250, type: 3}
 --- !u!4 &234931319 stripped
 Transform:
@@ -747,8 +751,8 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 589489a204d18fd4abd4658f6a120250, type: 3}
   m_PrefabInstance: {fileID: 234931318}
   m_PrefabAsset: {fileID: 0}
---- !u!154 &234931321
-TerrainCollider:
+--- !u!64 &234931324
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -762,11 +766,13 @@ TerrainCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
+  m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_TerrainData: {fileID: 15600000, guid: 9a9929126b786cd49985c67b33e54b2b, type: 2}
-  m_EnableTreeColliders: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4343901447002001154, guid: 589489a204d18fd4abd4658f6a120250, type: 3}
 --- !u!1001 &266937880
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -849,6 +855,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 539844446446098105, guid: f09d6a4655aca474e9a0c7290029ce5b, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 959.99994
+      objectReference: {fileID: 0}
     - target: {fileID: 3368999784667885179, guid: f09d6a4655aca474e9a0c7290029ce5b, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -973,6 +983,10 @@ PrefabInstance:
       propertyPath: m_SortingOrder
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7548385469785410824, guid: f09d6a4655aca474e9a0c7290029ce5b, type: 3}
+      propertyPath: m_PlaneDistance
+      value: 1.01
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 8863259775099618906, guid: f09d6a4655aca474e9a0c7290029ce5b, type: 3}
@@ -1085,7 +1099,7 @@ GameObject:
   - component: {fileID: 335944345}
   m_Layer: 0
   m_Name: step (2)
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1190,7 +1204,7 @@ GameObject:
   - component: {fileID: 347366792}
   m_Layer: 0
   m_Name: step (3)
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1333,7 +1347,7 @@ GameObject:
   - component: {fileID: 565262414}
   m_Layer: 0
   m_Name: step (7)
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1438,7 +1452,7 @@ GameObject:
   - component: {fileID: 579198865}
   m_Layer: 0
   m_Name: step (11)
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1682,7 +1696,7 @@ GameObject:
   - component: {fileID: 681580035}
   m_Layer: 0
   m_Name: step (11)
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1902,7 +1916,7 @@ GameObject:
   - component: {fileID: 759489486}
   m_Layer: 0
   m_Name: step (8)
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2075,7 +2089,7 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 589489a204d18fd4abd4658f6a120250, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 782726531}
+      addedObject: {fileID: 782726534}
   m_SourcePrefab: {fileID: 100100000, guid: 589489a204d18fd4abd4658f6a120250, type: 3}
 --- !u!4 &782726529 stripped
 Transform:
@@ -2087,8 +2101,8 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 589489a204d18fd4abd4658f6a120250, type: 3}
   m_PrefabInstance: {fileID: 782726528}
   m_PrefabAsset: {fileID: 0}
---- !u!154 &782726531
-TerrainCollider:
+--- !u!64 &782726534
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -2102,11 +2116,13 @@ TerrainCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
+  m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_TerrainData: {fileID: 15600000, guid: 9a9929126b786cd49985c67b33e54b2b, type: 2}
-  m_EnableTreeColliders: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4343901447002001154, guid: 589489a204d18fd4abd4658f6a120250, type: 3}
 --- !u!1 &791913481
 GameObject:
   m_ObjectHideFlags: 0
@@ -2198,7 +2214,7 @@ PrefabInstance:
     - target: {fileID: 2952365052919006869, guid: 7f3d30d05aa72a14e956d5a91a4012a5, type: 3}
       propertyPath: player
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1951882479}
     - target: {fileID: 2952365052919006869, guid: 7f3d30d05aa72a14e956d5a91a4012a5, type: 3}
       propertyPath: isCheckPoint
       value: 1
@@ -2290,7 +2306,7 @@ GameObject:
   - component: {fileID: 918525593}
   m_Layer: 0
   m_Name: step (5)
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2539,7 +2555,7 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 589489a204d18fd4abd4658f6a120250, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 937631817}
+      addedObject: {fileID: 937631820}
   m_SourcePrefab: {fileID: 100100000, guid: 589489a204d18fd4abd4658f6a120250, type: 3}
 --- !u!4 &937631815 stripped
 Transform:
@@ -2551,8 +2567,8 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 589489a204d18fd4abd4658f6a120250, type: 3}
   m_PrefabInstance: {fileID: 937631814}
   m_PrefabAsset: {fileID: 0}
---- !u!154 &937631817
-TerrainCollider:
+--- !u!64 &937631820
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -2566,11 +2582,13 @@ TerrainCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
+  m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_TerrainData: {fileID: 15600000, guid: 9a9929126b786cd49985c67b33e54b2b, type: 2}
-  m_EnableTreeColliders: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4343901447002001154, guid: 589489a204d18fd4abd4658f6a120250, type: 3}
 --- !u!4 &998075189 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 9093257193123151483, guid: 7f3d30d05aa72a14e956d5a91a4012a5, type: 3}
@@ -2590,7 +2608,7 @@ GameObject:
   - component: {fileID: 1022314769}
   m_Layer: 0
   m_Name: step (4)
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2909,7 +2927,7 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 589489a204d18fd4abd4658f6a120250, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1061712048}
+      addedObject: {fileID: 1061712051}
   m_SourcePrefab: {fileID: 100100000, guid: 589489a204d18fd4abd4658f6a120250, type: 3}
 --- !u!4 &1061712046 stripped
 Transform:
@@ -2921,8 +2939,8 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 589489a204d18fd4abd4658f6a120250, type: 3}
   m_PrefabInstance: {fileID: 1061712045}
   m_PrefabAsset: {fileID: 0}
---- !u!154 &1061712048
-TerrainCollider:
+--- !u!64 &1061712051
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -2936,11 +2954,13 @@ TerrainCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
+  m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_TerrainData: {fileID: 15600000, guid: 9a9929126b786cd49985c67b33e54b2b, type: 2}
-  m_EnableTreeColliders: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4343901447002001154, guid: 589489a204d18fd4abd4658f6a120250, type: 3}
 --- !u!4 &1071608817 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 5a4f21348177997439ec32de014bf2d0, type: 3}
@@ -3220,7 +3240,7 @@ GameObject:
   - component: {fileID: 1185026296}
   m_Layer: 0
   m_Name: step (9)
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3556,7 +3576,7 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 589489a204d18fd4abd4658f6a120250, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1377220068}
+      addedObject: {fileID: 1377220071}
   m_SourcePrefab: {fileID: 100100000, guid: 589489a204d18fd4abd4658f6a120250, type: 3}
 --- !u!4 &1377220066 stripped
 Transform:
@@ -3568,8 +3588,8 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 589489a204d18fd4abd4658f6a120250, type: 3}
   m_PrefabInstance: {fileID: 1377220065}
   m_PrefabAsset: {fileID: 0}
---- !u!154 &1377220068
-TerrainCollider:
+--- !u!64 &1377220071
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -3583,11 +3603,13 @@ TerrainCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
+  m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_TerrainData: {fileID: 15600000, guid: 9a9929126b786cd49985c67b33e54b2b, type: 2}
-  m_EnableTreeColliders: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4343901447002001154, guid: 589489a204d18fd4abd4658f6a120250, type: 3}
 --- !u!1 &1441314950
 GameObject:
   m_ObjectHideFlags: 0
@@ -4202,7 +4224,7 @@ GameObject:
   - component: {fileID: 1590111664}
   m_Layer: 0
   m_Name: step (1)
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4375,7 +4397,7 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 589489a204d18fd4abd4658f6a120250, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1603123180}
+      addedObject: {fileID: 1603123183}
   m_SourcePrefab: {fileID: 100100000, guid: 589489a204d18fd4abd4658f6a120250, type: 3}
 --- !u!4 &1603123178 stripped
 Transform:
@@ -4387,8 +4409,8 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 589489a204d18fd4abd4658f6a120250, type: 3}
   m_PrefabInstance: {fileID: 1603123177}
   m_PrefabAsset: {fileID: 0}
---- !u!154 &1603123180
-TerrainCollider:
+--- !u!64 &1603123183
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -4402,11 +4424,13 @@ TerrainCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
+  m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_TerrainData: {fileID: 15600000, guid: 9a9929126b786cd49985c67b33e54b2b, type: 2}
-  m_EnableTreeColliders: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4343901447002001154, guid: 589489a204d18fd4abd4658f6a120250, type: 3}
 --- !u!1 &1615597512
 GameObject:
   m_ObjectHideFlags: 0
@@ -4421,7 +4445,7 @@ GameObject:
   - component: {fileID: 1615597514}
   m_Layer: 0
   m_Name: step (6)
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4857,7 +4881,7 @@ GameObject:
   - component: {fileID: 1845884719}
   m_Layer: 0
   m_Name: step (10)
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5126,11 +5150,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerAnim: {fileID: 1490544875}
   rb: {fileID: 1951882481}
-  w_speed: 250
-  wb_speed: 100
-  olw_speed: 100
-  rn_speed: 100
-  ro_speed: 100
+  w_speed: 500
+  wb_speed: 250
+  olw_speed: 250
+  rn_speed: 250
+  ro_speed: 250
   jumpForce: 15
   playerHeight: 3
   walking: 0
@@ -5147,6 +5171,8 @@ MonoBehaviour:
   - {fileID: 791913483}
   - {fileID: 1169575809}
   totalRewards: 5
+  dashSpeedMultiplier: 2
+  dashDuration: 0.5
 --- !u!54 &1951882481
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -5419,7 +5445,7 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 589489a204d18fd4abd4658f6a120250, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 2086231800}
+      addedObject: {fileID: 2086231803}
   m_SourcePrefab: {fileID: 100100000, guid: 589489a204d18fd4abd4658f6a120250, type: 3}
 --- !u!4 &2086231798 stripped
 Transform:
@@ -5431,8 +5457,8 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 589489a204d18fd4abd4658f6a120250, type: 3}
   m_PrefabInstance: {fileID: 2086231797}
   m_PrefabAsset: {fileID: 0}
---- !u!154 &2086231800
-TerrainCollider:
+--- !u!64 &2086231803
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -5446,11 +5472,13 @@ TerrainCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
+  m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_TerrainData: {fileID: 15600000, guid: 9a9929126b786cd49985c67b33e54b2b, type: 2}
-  m_EnableTreeColliders: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4343901447002001154, guid: 589489a204d18fd4abd4658f6a120250, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
