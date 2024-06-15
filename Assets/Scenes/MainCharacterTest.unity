@@ -383,7 +383,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.002720818, y: -0.97339654, z: 5.12}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2.79, y: 7.17, z: 2.93}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -469,6 +469,11 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!4 &304390711 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1623133414180413668, guid: 4c7150141cbe867449d8e60d5031902f, type: 3}
+  m_PrefabInstance: {fileID: 956607100}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &433686507
 GameObject:
   m_ObjectHideFlags: 0
@@ -851,6 +856,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6288356312119179964, guid: 4c7150141cbe867449d8e60d5031902f, type: 3}
+      propertyPath: bulletSpeed
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 6288356312119179964, guid: 4c7150141cbe867449d8e60d5031902f, type: 3}
+      propertyPath: bulletPrefab
+      value: 
+      objectReference: {fileID: 2420476143727458436, guid: 86a41abfe1cceb8429b7d6dfec7d0531, type: 3}
+    - target: {fileID: 6288356312119179964, guid: 4c7150141cbe867449d8e60d5031902f, type: 3}
+      propertyPath: bulletSpawnPoint
+      value: 
+      objectReference: {fileID: 304390711}
     - target: {fileID: 7927974666664680027, guid: 4c7150141cbe867449d8e60d5031902f, type: 3}
       propertyPath: m_Name
       value: Player
