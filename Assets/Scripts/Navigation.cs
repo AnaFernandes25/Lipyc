@@ -10,9 +10,9 @@ public class Navigation : MonoBehaviour
     int currentHealth; // Current health of the enemy
     float lastAttackTime = 0;
     float attackCoolDown = 2;
-    [SerializeField] float stoppingDistance;
-    [SerializeField] float followDistance = 2f;
-    [SerializeField] float stopFollowDistance = 5f;
+    [SerializeField] float stoppingDistance = 1f;
+    [SerializeField] float followDistance = 5f;
+    [SerializeField] float stopFollowDistance = 10f;
     GameObject target;
     private NavMeshAgent agent;
     Animator anim;
@@ -24,6 +24,9 @@ public class Navigation : MonoBehaviour
         anim = GetComponentInChildren<Animator>();
         target = GameObject.FindGameObjectWithTag("Player");
         currentHealth = maxHealth; // Set current health to maximum health when the enemy spawns
+
+        // Inicia na animação de idle
+        anim.SetBool("IsWalking", false);
     }
 
     // Update is called once per frame
@@ -44,19 +47,27 @@ public class Navigation : MonoBehaviour
         {
             StopEnemy();
         }
+
+        // Atualiza a animação de acordo com o estado do agente
+        if (agent.velocity.magnitude > 0)
+        {
+            anim.SetBool("IsWalking", true);
+        }
+        else
+        {
+            anim.SetBool("IsWalking", false);
+        }
     }
 
     private void GoToTarget()
     {
         agent.isStopped = false;
         agent.SetDestination(target.transform.position);
-        anim.SetBool("IsWalking", true);
     }
 
     private void StopEnemy()
     {
         agent.isStopped = true;
-        anim.SetBool("IsWalking", false);
     }
 
     private void Attack()
