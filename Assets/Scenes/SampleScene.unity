@@ -5705,7 +5705,7 @@ PrefabInstance:
       objectReference: {fileID: 1551791204}
     - target: {fileID: 6300400258301565986, guid: 4c7150141cbe867449d8e60d5031902f, type: 3}
       propertyPath: ro_speed
-      value: 1000
+      value: 850
       objectReference: {fileID: 0}
     - target: {fileID: 6300400258301565986, guid: 4c7150141cbe867449d8e60d5031902f, type: 3}
       propertyPath: vidas.Array.size
