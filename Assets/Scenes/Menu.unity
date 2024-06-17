@@ -133,7 +133,7 @@ GameObject:
   m_Component:
   - component: {fileID: 25341507}
   m_Layer: 0
-  m_Name: Efeitos Sonoros
+  m_Name: Volume Efeitos
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2045,7 +2045,7 @@ GameObject:
   m_Component:
   - component: {fileID: 288659969}
   m_Layer: 0
-  m_Name: Qualidade
+  m_Name: Quality
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2125,7 +2125,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Option A
+  m_text: VeryLow
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -3499,11 +3499,15 @@ MonoBehaviour:
   m_Value: 0
   m_Options:
     m_Options:
-    - m_Text: Option A
+    - m_Text: 800 x 600
       m_Image: {fileID: 0}
-    - m_Text: Option B
+    - m_Text: 1280 x 720
       m_Image: {fileID: 0}
-    - m_Text: Option C
+    - m_Text: 1920 x 1080
+      m_Image: {fileID: 0}
+    - m_Text: 2560 x 1440
+      m_Image: {fileID: 0}
+    - m_Text: 3840 x 2160
       m_Image: {fileID: 0}
   m_OnValueChanged:
     m_PersistentCalls:
@@ -5701,7 +5705,7 @@ GameObject:
   m_Component:
   - component: {fileID: 821120905}
   m_Layer: 0
-  m_Name: Volume
+  m_Name: GlobalVolume
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6316,7 +6320,7 @@ GameObject:
   m_Component:
   - component: {fileID: 978261601}
   m_Layer: 0
-  m_Name: "M\xFAsica"
+  m_Name: Volume Musicas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8163,7 +8167,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Option A
+  m_text: 800 x 600
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -9062,11 +9066,15 @@ MonoBehaviour:
   m_Value: 0
   m_Options:
     m_Options:
-    - m_Text: Option A
+    - m_Text: VeryLow
       m_Image: {fileID: 0}
-    - m_Text: Option B
+    - m_Text: Low
       m_Image: {fileID: 0}
-    - m_Text: Option C
+    - m_Text: Medium
+      m_Image: {fileID: 0}
+    - m_Text: High
+      m_Image: {fileID: 0}
+    - m_Text: Ultra
       m_Image: {fileID: 0}
   m_OnValueChanged:
     m_PersistentCalls:
@@ -10464,6 +10472,17 @@ MonoBehaviour:
   rawImage: {fileID: 688544649}
   selectSound: {fileID: 1141545539}
   newGameScene: 
+  resolution: {fileID: 0}
+  quality: {fileID: 0}
+  textFPS: {fileID: 0}
+  limitFPS: {fileID: 0}
+  windowMode: {fileID: 0}
+  bloom: {fileID: 0}
+  reflection: {fileID: 0}
+  autoSave: {fileID: 0}
+  globalVol: {fileID: 0}
+  musicsVol: {fileID: 0}
+  effectVol: {fileID: 0}
 --- !u!4 &1729784284
 Transform:
   m_ObjectHideFlags: 0
@@ -10858,7 +10877,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1827305583}
   m_Layer: 0
-  m_Name: Limit Fps
+  m_Name: Limitar FPS
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
