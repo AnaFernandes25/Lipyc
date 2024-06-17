@@ -506,7 +506,7 @@ GameObject:
   - component: {fileID: 646584457}
   - component: {fileID: 646584459}
   m_Layer: 0
-  m_Name: FreeLook Camera
+  m_Name: PlayerCam
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1202,6 +1202,7 @@ GameObject:
   - component: {fileID: 1379550867}
   - component: {fileID: 1379550868}
   - component: {fileID: 1379550869}
+  - component: {fileID: 1379550870}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -1278,6 +1279,26 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 128
   orientation: {fileID: 571023316}
+--- !u!114 &1379550870
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1379550866}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 165ca7ba76696034bb589c89a424b729, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  orientation: {fileID: 571023316}
+  playerCam: {fileID: 646584458}
+  dashForce: 20
+  dashUpwardForce: 0
+  dashDuration: 0.25
+  dashCd: 1.5
+  dashCdTimer: 0
+  dashKey: 304
 --- !u!1 &1790419208
 GameObject:
   m_ObjectHideFlags: 0
