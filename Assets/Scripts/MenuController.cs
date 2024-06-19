@@ -2,7 +2,9 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Runtime.Serialization.Formatters.Binary;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -69,6 +71,64 @@ public class MenuController : MonoBehaviour
     public void ExitGame()
     {
         Application.Quit();
+    }
+
+    private void ApllyConfigs()
+    {
+        var configs = LoadConfigs();
+
+        if (configs != null)
+            return;
+
+        //Aplicar a resolução e modo de janela
+        Screen.SetResolution(configs.Resolution.Width, configs.Resolution.Height, !configs.WindowMode);
+
+        //Aplicar o preset da qualidade
+        QualitySettings.SetQualityLevel((int)configs.Quality);
+
+        //Aplicar Limite de FPS
+        Application.targetFrameRate = configs.LimitFPS.Limit ? configs.LimitFPS.FPS : -1;
+
+        //Ativar o volume
+
+    }
+
+    private ConfigModel LoadConfigs()
+    {
+        try
+        {
+            var fileDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments)
+            if (!File.Exists(fileDirectory))
+                return null;
+
+            var binaryFormatter = new BinaryFormatter();
+            var file = File.OpenRead(fileDirectory);
+
+            var configs = (ConfigModel)binaryFormatter.Deserialize(file);
+            file.Close();
+
+            if (configs != null)
+            {
+                var option = resolution.options.Where(x => x.text == $"{configs.Resolution.Width}x{configs.Resolution.Height}").FirstOrDefault();
+                resolution.value = resolution.options.IndexOf(option);
+                quality.value = (int)configs.Quality;
+                textFPS.text = configs.LimitFPS.FPS.ToString();
+                windowMode.isOn = configs.WindowMode;
+                bloom.isOn = configs.Bloom;
+                reflection.isOn = configs.Reflection;
+                autoSave.isOn = configs.AutoSave;
+                globalVol.value = configs.GlobalVolume;
+                effectVol.value = configs.EffectsVolume;
+                musicsVol.value = configs.MusicVolume;
+            }
+
+            return configs;
+        }
+        catch (Exception ex)
+        {
+            return null;
+        }
+
     }
 
     private void SaveConfigs()

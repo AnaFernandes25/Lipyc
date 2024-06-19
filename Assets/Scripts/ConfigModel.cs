@@ -2,23 +2,22 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[SerializeField]
-public class ConfigModel 
+[System.Serializable]
+public class ConfigModel
 {
-    public Resolution Resolution { get; set; }
-    public LimitFPS LimitFPS { get; set; }
-    public bool WindowMode { get; set; }
-    public Quality Quality { get; set; }
-    public bool Bloom { get; set; }
-    public bool Reflection { get; set; }
-    public float GlobalVolume { get; set; }
-    public float MusicVolume { get; set; }
-    public float EffectsVolume { get; set; }
-    public bool AutoSave { get; set; }
-
+    public Resolution Resolution;
+    public LimitFPS LimitFPS;
+    public bool WindowMode;
+    public Quality Quality;
+    public bool Bloom;
+    public bool Reflection;
+    public float GlobalVolume;
+    public float MusicVolume;
+    public float EffectsVolume;
+    public bool AutoSave;
 }
 
-[SerializeField]
+[System.Serializable]
 public enum Quality
 {
     VeryLow,
@@ -28,18 +27,16 @@ public enum Quality
     Ultra
 }
 
-[SerializeField]
+[System.Serializable]
 public class Resolution
 {
-    public int Width { get; set; }
-    public int Height { get; set; }
-
+    public int Width;
+    public int Height;
 }
 
-[SerializeField]
+[System.Serializable]
 public class LimitFPS
 {
-    public bool Limit { get; set; }
-    public int FPS { get; set; }
-
+    public bool Limit;
+    public int FPS;
 }
