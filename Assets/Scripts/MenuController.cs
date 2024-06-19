@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Runtime.Serialization.Formatters.Binary;
 using UnityEditor;
 using UnityEngine;
@@ -26,6 +27,8 @@ public class MenuController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        ApplyConfigs();
+
         rawImage.SetActive(false);
         menuOptions.SetActive(false);
         animatorRawImage = rawImage.GetComponent<Animator>();
@@ -38,7 +41,7 @@ public class MenuController : MonoBehaviour
         {
             selectSound.Play();
             videoPlayer.Play();
-            rawImage.SetActive(true );
+            rawImage.SetActive(true);
             animatorRawImage.SetTrigger("fadeIn");
             menuInicial.SetActive(true);
         }
@@ -48,7 +51,6 @@ public class MenuController : MonoBehaviour
     {
         menuInicial.SetActive(false);
         menuOptions.SetActive(true);
-
     }
 
     public void Salvar()
@@ -62,7 +64,7 @@ public class MenuController : MonoBehaviour
         menuInicial.SetActive(true);
         menuOptions.SetActive(false);
     }
-    
+
     public void NewGame()
     {
         SceneManager.LoadScene(newGameScene);
@@ -73,7 +75,7 @@ public class MenuController : MonoBehaviour
         Application.Quit();
     }
 
-    private void ApllyConfigs()
+    private void ApplyConfigs()
     {
         var configs = LoadConfigs();
 
@@ -90,14 +92,19 @@ public class MenuController : MonoBehaviour
         Application.targetFrameRate = configs.LimitFPS.Limit ? configs.LimitFPS.FPS : -1;
 
         //Ativar o volume
-
+        SceneConfigs.effectsVolume = configs.EffectsVolume;
+        SceneConfigs.globalVolume = configs.GlobalVolume;
+        SceneConfigs.musicVolume = configs.MusicVolume;
+        SceneConfigs.autoSave = configs.AutoSave;
+        SceneConfigs.bloom = configs.Bloom;
+        SceneConfigs.reflections = configs.Reflection;
     }
 
     private ConfigModel LoadConfigs()
     {
         try
         {
-            var fileDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments)
+            var fileDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
             if (!File.Exists(fileDirectory))
                 return null;
 
@@ -128,13 +135,11 @@ public class MenuController : MonoBehaviour
         {
             return null;
         }
-
     }
 
     private void SaveConfigs()
     {
         var resolutionModel = new Resolution();
-
 
         switch (resolution.value)
         {
@@ -158,7 +163,6 @@ public class MenuController : MonoBehaviour
                 resolutionModel.Width = 3840;
                 resolutionModel.Height = 2160;
                 break;
-
         }
 
         var configs = new ConfigModel()
@@ -178,7 +182,6 @@ public class MenuController : MonoBehaviour
             Resolution = resolutionModel
         };
 
-
         var path = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "/Lypic/";
 
         var binaryFormatter = new BinaryFormatter();
@@ -186,7 +189,7 @@ public class MenuController : MonoBehaviour
 
         binaryFormatter.Serialize(file, configs);
         file.Close();
-   
 
+        ApplyConfigs();
     }
 }
