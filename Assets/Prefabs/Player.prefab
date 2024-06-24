@@ -44,7 +44,6 @@ GameObject:
   - component: {fileID: 6012021542755778837}
   - component: {fileID: 295597909117343856}
   - component: {fileID: 6191887574962085808}
-  - component: {fileID: 6300400258301565986}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -169,43 +168,6 @@ Rigidbody:
   m_Interpolate: 1
   m_Constraints: 112
   m_CollisionDetection: 1
---- !u!114 &6300400258301565986
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7927974666664680027}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eb99f7ffe2551f14497d4a488c6367ce, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerAnim: {fileID: 580102791619356432}
-  rb: {fileID: 6191887574962085808}
-  w_speed: 500
-  wb_speed: 250
-  olw_speed: 250
-  rn_speed: 250
-  ro_speed: 250
-  jumpForce: 15
-  playerHeight: 3
-  walking: 0
-  playerTrans: {fileID: 46315666565395151}
-  whatIsGround:
-    serializedVersion: 2
-    m_Bits: 128
-  nivelACarregarLost: Menu
-  nivelACarregarWin: 
-  respawnPoint: {fileID: 46315666565395151}
-  vidas:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  totalRewards: 5
-  dashSpeedMultiplier: 2
-  dashDuration: 0.5
 --- !u!1 &8293524799872950969
 GameObject:
   m_ObjectHideFlags: 0
@@ -251,6 +213,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a38dd14fe42ba564989d37460032551a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bulletSpawnPoint: {fileID: 0}
+  bulletPrefab: {fileID: 0}
+  bulletSpeed: 10
 --- !u!1001 &1724918578212575591
 PrefabInstance:
   m_ObjectHideFlags: 0
