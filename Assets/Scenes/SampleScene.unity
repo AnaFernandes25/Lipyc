@@ -5374,8 +5374,8 @@ MonoBehaviour:
   whatIsGround:
     serializedVersion: 2
     m_Bits: 128
-  orientation: {fileID: 0}
-  mainCamera: {fileID: 0}
+  orientation: {fileID: 1951882485}
+  mainCamera: {fileID: 172293562}
   vidasIniciais: 3
   vidas:
   - {fileID: 1473487016}
