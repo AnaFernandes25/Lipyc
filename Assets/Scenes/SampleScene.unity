@@ -668,7 +668,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 172293559}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.5257311, y: -0.000000029273243, z: 0.000000018091859, w: 0.85065085}
+  m_LocalRotation: {x: 0.5257311, y: 0.000000029273243, z: -0.000000018091859, w: 0.85065085}
   m_LocalPosition: {x: 270.53, y: 19.39, z: 167.02}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -4589,7 +4589,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1736639630}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.5257311, y: -0.0000000073183113, z: 0.0000000045229647, w: 0.8506509}
+  m_LocalRotation: {x: 0.5257311, y: 0.0000000073183113, z: -0.0000000045229647, w: 0.8506509}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -5362,7 +5362,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb99f7ffe2551f14497d4a488c6367ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 15
+  moveSpeed: 6
   groundDrag: 0.5
   jumpForce: 20
   jumpCooldown: 0.05
