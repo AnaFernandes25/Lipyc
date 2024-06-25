@@ -6,60 +6,184 @@ using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
+    [Header("Movement Settings")]
+    public float moveSpeed;
+    public float groundDrag;
+    public float jumpForce;
+    public float jumpCooldown;
+    public float airMultiplier;
+    public float dashSpeedMultiplier = 2f;
+    public float dashDuration = 0.5f;
+
+    [Header("Animation")]
     public Animator playerAnim;
-    public Rigidbody rb;
-    public float w_speed, wb_speed, olw_speed, rn_speed, ro_speed, jumpForce, playerHeight;
-    public bool walking;
-    public Transform playerTrans; // Assegure-se de que este esteja corretamente referenciado no inspetor
-    private bool isGrounded;
+
+    [Header("Ground Check")]
+    public float playerHeight;
     public LayerMask whatIsGround;
-    bool readyToJump = true;
-    Vector3 checkpointPosition;
-    public string nivelACarregarLost;
-    public string nivelACarregarWin; // Adicionado para carregar nível quando jogador ganhar
-    public Transform respawnPoint;
-    private int vidasIniciais = 3;
+    private bool grounded;
+    private bool readyToJump = true;
+
+    [Header("Camera and Orientation")]
+    public Transform orientation;
+    public Camera mainCamera;
+
+    [Header("Health and Respawn")]
+    public int vidasIniciais = 3;
     public List<Image> vidas;
+    public Transform respawnPoint;
 
-    private int rewardsCollected = 0; // Contador de recompensas
-    public int totalRewards = 5; // Número total de recompensas necessárias para ganhar
+    [Header("Level Loading")]
+    public string nivelACarregarLost;
+    public string nivelACarregarWin;
+    private int rewardsCollected = 0;
+    public int totalRewards = 5;
 
-    public float dashSpeedMultiplier = 2f; // Fator de multiplicação da velocidade durante o dash
-    public float dashDuration = 0.5f; // Duração do dash em segundos
-
-    private float originalSpeed; // Para armazenar a velocidade original
-    private Coroutine waterDamageCoroutine; // Coroutine para dano na água
+    private Rigidbody rb;
+    private float horizontalInput;
+    private float verticalInput;
+    private Vector3 moveDirection;
+    private float originalSpeed;
+    private Coroutine waterDamageCoroutine;
+    private Vector3 checkpointPosition;
 
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        originalSpeed = w_speed; // Salva a velocidade original
+        rb.freezeRotation = true;
+        originalSpeed = moveSpeed;
+
+        if (mainCamera == null)
+        {
+            mainCamera = Camera.main;
+        }
+
         ResetJump();
         LoadCheckpoint();
-        playerTrans.position = checkpointPosition;
+        transform.position = checkpointPosition;
+    }
+
+    void Update()
+    {
+        // Ground check
+        grounded = Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.5f + 0.3f, whatIsGround);
+
+        MyInput();
+        SpeedControl();
+
+        // Handle drag
+        rb.drag = grounded ? groundDrag : 0;
+
+        // Adjust player rotation to face the camera's direction
+        Vector3 directionToCamera = (mainCamera.transform.position - transform.position).normalized;
+        directionToCamera.y = 0;
+        transform.rotation = Quaternion.LookRotation(-directionToCamera);
+
+        // Jump
+        if (Input.GetKeyDown(KeyCode.Space) && readyToJump && grounded)
+        {
+            readyToJump = false;
+            Jump();
+            playerAnim.SetTrigger("jump");
+            Invoke(nameof(ResetJump), jumpCooldown);
+        }
+
+        // Dash
+        if (grounded && (Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift)))
+        {
+            StartCoroutine(Dash());
+        }
+
+        // Handle animations
+        HandleAnimations();
     }
 
     void FixedUpdate()
     {
-        // Movimentação no eixo Z (frente e trás)
-        Vector3 movement = Vector3.zero;
-        if (Input.GetKey(KeyCode.W))
+        MovePlayer();
+    }
+
+    private void MyInput()
+    {
+        horizontalInput = Input.GetAxisRaw("Horizontal");
+        verticalInput = Input.GetAxisRaw("Vertical");
+    }
+
+    private void MovePlayer()
+    {
+        // Get the forward and right directions relative to the camera
+        Vector3 forward = mainCamera.transform.forward;
+        Vector3 right = mainCamera.transform.right;
+
+        // Project the forward and right directions onto the horizontal plane (y = 0)
+        forward.y = 0;
+        right.y = 0;
+        forward.Normalize();
+        right.Normalize();
+
+        // Calculate the movement direction based on input and camera orientation
+        moveDirection = forward * verticalInput + right * horizontalInput;
+
+        if (grounded)
         {
-            movement += transform.forward * w_speed * Time.deltaTime;
+            rb.AddForce(moveDirection.normalized * moveSpeed * 10f, ForceMode.Force);
         }
-        if (Input.GetKey(KeyCode.S))
+        else
         {
-            movement += -transform.forward * wb_speed * Time.deltaTime;
+            rb.AddForce(moveDirection.normalized * moveSpeed * 10f * airMultiplier, ForceMode.Force);
         }
-        movement.y = rb.velocity.y; // Manter a velocidade Y existente para não interferir no pulo
-        rb.velocity = movement;
+    }
+
+    private void SpeedControl()
+    {
+        Vector3 flatVel = new Vector3(rb.velocity.x, 0f, rb.velocity.z);
+
+        if (flatVel.magnitude > moveSpeed)
+        {
+            Vector3 limitedVel = flatVel.normalized * moveSpeed;
+            rb.velocity = new Vector3(limitedVel.x, rb.velocity.y, limitedVel.z);
+        }
+    }
+
+    private void Jump()
+    {
+        rb.velocity = new Vector3(rb.velocity.x, 0f, rb.velocity.z);
+        rb.AddForce(transform.up * jumpForce, ForceMode.Impulse);
+    }
+
+    private void ResetJump()
+    {
+        readyToJump = true;
+    }
+
+    private IEnumerator Dash()
+    {
+        moveSpeed *= dashSpeedMultiplier;
+        yield return new WaitForSeconds(dashDuration);
+        moveSpeed = originalSpeed;
+    }
+
+    private void HandleAnimations()
+    {
+        bool walking = horizontalInput != 0 || verticalInput != 0;
+
+        if (walking)
+        {
+            playerAnim.SetTrigger("walk");
+            playerAnim.ResetTrigger("idle");
+        }
+        else
+        {
+            playerAnim.ResetTrigger("walk");
+            playerAnim.SetTrigger("idle");
+        }
     }
 
     void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.CompareTag("Ground"))
         {
-            isGrounded = true;
+            grounded = true;
             readyToJump = true;
         }
         if (collision.gameObject.CompareTag("inimigo"))
@@ -77,84 +201,46 @@ public class Player : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Ground"))
         {
-            isGrounded = false;
+            grounded = false;
         }
     }
 
-    void Update()
+    private void OnTriggerEnter(Collider other)
     {
-        rb.freezeRotation = true;
-
-        // Animação e estado de caminhada
-        if (Input.GetKeyDown(KeyCode.W))
+        if (other.CompareTag("LimiteEcra"))
         {
-            playerAnim.SetTrigger("walk");
-            playerAnim.ResetTrigger("idle");
-            walking = true;
+            HandleDamage();
         }
-        if (Input.GetKeyUp(KeyCode.W))
+        else if (other.CompareTag("Checkpoint"))
         {
-            playerAnim.ResetTrigger("walk");
-            playerAnim.SetTrigger("idle");
-            walking = false;
+            checkpointPosition = other.transform.position;
+            SaveCheckpoint();
         }
-        if (Input.GetKeyDown(KeyCode.S))
+        else if (other.CompareTag("agua"))
         {
-            playerAnim.SetTrigger("walk");
-            playerAnim.ResetTrigger("idle");
-        }
-        if (Input.GetKeyUp(KeyCode.S))
-        {
-            playerAnim.ResetTrigger("walk");
-            playerAnim.SetTrigger("idle");
-        }
-
-        // Rotação do jogador
-        if (Input.GetKey(KeyCode.A))
-        {
-            playerTrans.Rotate(0, -ro_speed * Time.deltaTime, 0);
-        }
-        if (Input.GetKey(KeyCode.D))
-        {
-            playerTrans.Rotate(0, ro_speed * Time.deltaTime, 0);
-        }
-
-        // Corrida
-        if (walking)
-        {
-            if (Input.GetKeyDown(KeyCode.LeftShift))
+            HandleDamage();
+            if (waterDamageCoroutine == null)
             {
-                playerAnim.SetTrigger("dash");
-                playerAnim.ResetTrigger("walk");
-                StartCoroutine(Dash()); // Chama a função de dash
-            }
-            if (Input.GetKeyUp(KeyCode.LeftShift))
-            {
-                playerAnim.ResetTrigger("dash");
-                playerAnim.SetTrigger("walk");
+                waterDamageCoroutine = StartCoroutine(WaterDamage());
             }
         }
+    }
 
-        isGrounded = Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.5f + 0.2f, whatIsGround);
-
-        // Salto
-        if (Input.GetKeyDown(KeyCode.Space) && isGrounded && readyToJump)
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("agua") && waterDamageCoroutine != null)
         {
-            rb.velocity = new Vector3(rb.velocity.x, 0f, rb.velocity.z); // Zera apenas a velocidade Y
-            rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
-            playerAnim.SetTrigger("jump");
-            isGrounded = false;
-            readyToJump = false;
+            StopCoroutine(waterDamageCoroutine);
+            waterDamageCoroutine = null;
         }
+    }
 
-        // Ataque
-        if (Input.GetMouseButtonDown(0)) // Botão esquerdo do mouse
+    private IEnumerator WaterDamage()
+    {
+        while (true)
         {
-            playerAnim.SetTrigger("attack1");
-        }
-        if (Input.GetMouseButtonDown(1)) // Botão direito do mouse
-        {
-            playerAnim.SetTrigger("attack2");
+            yield return new WaitForSeconds(5);
+            HandleDamage();
         }
     }
 
@@ -169,53 +255,6 @@ public class Player : MonoBehaviour
         if (vidasIniciais == 0)
         {
             ReloadScene();
-        }
-    }
-
-    private void ResetJump()
-    {
-        readyToJump = true;
-    }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.tag == "LimiteEcra")
-        {
-            HandleDamage();
-        }
-        else if (other.tag == "Checkpoint")
-        {
-            checkpointPosition = other.transform.position;
-            SaveCheckpoint();
-        }
-        else if (other.tag == "agua")
-        {
-            HandleDamage();
-            if (waterDamageCoroutine == null)
-            {
-                waterDamageCoroutine = StartCoroutine(WaterDamage());
-            }
-        }
-    }
-
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.tag == "agua")
-        {
-            if (waterDamageCoroutine != null)
-            {
-                StopCoroutine(waterDamageCoroutine);
-                waterDamageCoroutine = null;
-            }
-        }
-    }
-
-    private IEnumerator WaterDamage()
-    {
-        while (true)
-        {
-            yield return new WaitForSeconds(5);
-            HandleDamage();
         }
     }
 
@@ -245,12 +284,5 @@ public class Player : MonoBehaviour
         {
             checkpointPosition = respawnPoint.position;
         }
-    }
-
-    private IEnumerator Dash()
-    {
-        w_speed *= dashSpeedMultiplier; // Aumenta a velocidade
-        yield return new WaitForSeconds(dashDuration); // Espera pela duração do dash
-        w_speed = originalSpeed; // Retorna à velocidade original
     }
 }
