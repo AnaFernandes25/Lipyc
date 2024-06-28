@@ -2,12 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "Powerups/SpeedBuff")]
-public class SpeedBuff : PowerupEffect
+[CreateAssetMenu(menuName = "Powerups/PerderVida")]
+public class PerderVida : PowerupEffect
 {
     public float amount;
     public override void Apply(GameObject target)
     {
-        target.GetComponent<Player>().moveSpeed += amount;
+        //target.GetComponent<Player>().vidasIniciais.value += amount;
     }
+
 }

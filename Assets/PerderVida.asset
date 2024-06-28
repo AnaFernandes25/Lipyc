@@ -9,7 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6a44584fae97bbd47b0d08357c89a575, type: 3}
-  m_Name: SpeedBuff
+  m_Script: {fileID: 11500000, guid: 2b20c29c16460f5489e75d9c978c230a, type: 3}
+  m_Name: PerderVida
   m_EditorClassIdentifier: 
-  amount: 4
+  amount: -1
