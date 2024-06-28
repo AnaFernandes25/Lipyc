@@ -5,10 +5,10 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "Powerups/PerderVida")]
 public class PerderVida : PowerupEffect
 {
-    public float amount;
+    public int amount;
     public override void Apply(GameObject target)
     {
-        //target.GetComponent<Player>().vidasIniciais.value += amount;
+        target.GetComponent<Player>().vidasIniciais += amount;
     }
 
 }
