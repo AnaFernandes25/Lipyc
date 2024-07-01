@@ -207,11 +207,11 @@ public class Player : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("LimiteEcra"))
-        {
-            HandleDamage();
-        }
-        else if (other.CompareTag("Checkpoint"))
+        //if (other.CompareTag("LimiteEcra"))
+        //{
+        //    HandleDamage();
+        //}
+        if (other.CompareTag("Checkpoint"))
         {
             checkpointPosition = other.transform.position;
             SaveCheckpoint();
