@@ -31,6 +31,7 @@ public class MenuController : MonoBehaviour
 
         rawImage.SetActive(false);
         menuOptions.SetActive(false);
+        menuInicial.SetActive(false);
         animatorRawImage = rawImage.GetComponent<Animator>();
     }
 
