@@ -27,6 +27,12 @@ public class MenuController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        if (rawImage == null || menuOptions == null || menuInicial == null)
+        {
+            Debug.LogError("One or more GameObjects are not assigned in the inspector");
+            return;
+        }
+
         ApplyConfigs();
 
         rawImage.SetActive(false);
@@ -80,60 +86,56 @@ public class MenuController : MonoBehaviour
     {
         var configs = LoadConfigs();
 
-        if (configs != null)
+        if (configs == null)
+        {
+            Debug.LogWarning("Configs are null in ApplyConfigs");
             return;
+        }
 
-        //Aplicar a resolução e modo de janela
-        Screen.SetResolution(configs.Resolution.Width, configs.Resolution.Height, !configs.WindowMode);
+        // Aplicar a resolução e modo de janela
+        if (configs.Resolution != null)
+        {
+            Screen.SetResolution(configs.Resolution.Width, configs.Resolution.Height, !configs.WindowMode);
+        }
 
-        //Aplicar o preset da qualidade
+        // Aplicar o preset da qualidade
         QualitySettings.SetQualityLevel((int)configs.Quality);
 
-        //Aplicar Limite de FPS
-        Application.targetFrameRate = configs.LimitFPS.Limit ? configs.LimitFPS.FPS : -1;
+        // Aplicar Limite de FPS
+        if (configs.LimitFPS != null)
+        {
+            Application.targetFrameRate = configs.LimitFPS.Limit ? configs.LimitFPS.FPS : -1;
+        }
 
-        //Ativar o volume
+        // Ativar o volume
         SceneConfigs.effectsVolume = configs.EffectsVolume;
         SceneConfigs.globalVolume = configs.GlobalVolume;
         SceneConfigs.musicVolume = configs.MusicVolume;
         SceneConfigs.autoSave = configs.AutoSave;
         SceneConfigs.bloom = configs.Bloom;
         SceneConfigs.reflections = configs.Reflection;
+
+        // Atualizar UI
+        UpdateUI(configs);
     }
 
     private ConfigModel LoadConfigs()
     {
         try
         {
-            var fileDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+            var fileDirectory = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "Lypic", "ConfigData.Save");
             if (!File.Exists(fileDirectory))
                 return null;
 
-            var binaryFormatter = new BinaryFormatter();
-            var file = File.OpenRead(fileDirectory);
-
-            var configs = (ConfigModel)binaryFormatter.Deserialize(file);
-            file.Close();
-
-            if (configs != null)
+            using (var file = File.OpenRead(fileDirectory))
             {
-                var option = resolution.options.Where(x => x.text == $"{configs.Resolution.Width}x{configs.Resolution.Height}").FirstOrDefault();
-                resolution.value = resolution.options.IndexOf(option);
-                quality.value = (int)configs.Quality;
-                textFPS.text = configs.LimitFPS.FPS.ToString();
-                windowMode.isOn = configs.WindowMode;
-                bloom.isOn = configs.Bloom;
-                reflection.isOn = configs.Reflection;
-                autoSave.isOn = configs.AutoSave;
-                globalVol.value = configs.GlobalVolume;
-                effectVol.value = configs.EffectsVolume;
-                musicsVol.value = configs.MusicVolume;
+                var binaryFormatter = new BinaryFormatter();
+                return (ConfigModel)binaryFormatter.Deserialize(file);
             }
-
-            return configs;
         }
         catch (Exception ex)
         {
+            Debug.LogError("Failed to load config: " + ex.Message);
             return null;
         }
     }
@@ -183,14 +185,36 @@ public class MenuController : MonoBehaviour
             Resolution = resolutionModel
         };
 
-        var path = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "/Lypic/";
+        var path = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "Lypic");
+
+        if (!Directory.Exists(path))
+        {
+            Directory.CreateDirectory(path);
+        }
+
+        var filePath = Path.Combine(path, "ConfigData.Save");
 
         var binaryFormatter = new BinaryFormatter();
-        var file = File.Create(path + "ConfigData.Save");
-
-        binaryFormatter.Serialize(file, configs);
-        file.Close();
+        using (var file = File.Create(filePath))
+        {
+            binaryFormatter.Serialize(file, configs);
+        }
 
         ApplyConfigs();
+    }
+
+    private void UpdateUI(ConfigModel configs)
+    {
+        var option = resolution.options.Where(x => x.text == $"{configs.Resolution.Width}x{configs.Resolution.Height}").FirstOrDefault();
+        resolution.value = resolution.options.IndexOf(option);
+        quality.value = (int)configs.Quality;
+        textFPS.text = configs.LimitFPS.FPS.ToString();
+        windowMode.isOn = configs.WindowMode;
+        bloom.isOn = configs.Bloom;
+        reflection.isOn = configs.Reflection;
+        autoSave.isOn = configs.AutoSave;
+        globalVol.value = configs.GlobalVolume;
+        effectVol.value = configs.EffectsVolume;
+        musicsVol.value = configs.MusicVolume;
     }
 }
