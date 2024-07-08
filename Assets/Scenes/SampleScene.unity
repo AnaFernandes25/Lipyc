@@ -1585,7 +1585,7 @@ GameObject:
   - component: {fileID: 579198867}
   - component: {fileID: 579198866}
   - component: {fileID: 579198865}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: step (11)
   m_TagString: Ground
   m_Icon: {fileID: 0}
@@ -1999,7 +1999,7 @@ GameObject:
   - component: {fileID: 681580032}
   - component: {fileID: 681580031}
   - component: {fileID: 681580035}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: step (11)
   m_TagString: Ground
   m_Icon: {fileID: 0}
@@ -5721,9 +5721,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb99f7ffe2551f14497d4a488c6367ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 8
+  moveSpeed: 6
   groundDrag: 0.5
-  jumpForce: 20
+  jumpForce: 2
   jumpCooldown: 0.05
   airMultiplier: 0.05
   dashSpeedMultiplier: 0.5
@@ -5743,7 +5743,7 @@ MonoBehaviour:
   respawnPoint: {fileID: 1107044097}
   nivelACarregarLost: 
   nivelACarregarWin: 
-  totalRewards: 5
+  totalRewards: 3
 --- !u!4 &2046261259 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: 2927ffef0e4909c4888a47862667dc0f, type: 3}
@@ -6108,6 +6108,10 @@ PrefabInstance:
     - target: {fileID: 1959432659064595510, guid: 4c7150141cbe867449d8e60d5031902f, type: 3}
       propertyPath: m_TagString
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 6191887574962085808, guid: 4c7150141cbe867449d8e60d5031902f, type: 3}
+      propertyPath: m_Mass
+      value: 0.25
       objectReference: {fileID: 0}
     - target: {fileID: 6288356312119179964, guid: 4c7150141cbe867449d8e60d5031902f, type: 3}
       propertyPath: bulletPrefab
