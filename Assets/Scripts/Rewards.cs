@@ -1,20 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
+using UnityEngine.SceneManagement; // Adicione esta linha para usar o SceneManager
 
 public class Rewards : MonoBehaviour
 {
-
     public int pointToAdd;
-
-    //private AudioSource RewardPickupEffect;
-
-
 
     void Start()
     {
-        //RewardPickupEffect = GetComponent<AudioSource>();
+        // Registra para ouvir eventos de mudança de cena
+        SceneManager.sceneUnloaded += OnSceneUnloaded;
     }
 
     void OnTriggerEnter(Collider other)
@@ -25,10 +21,21 @@ public class Rewards : MonoBehaviour
 
         ScoreManager.AddPoints(pointToAdd);
 
-        //RewardPickupEffect.Play(); // Toca o som
+        // Desativa o componente MeshRenderer
+        GetComponentInChildren<MeshRenderer>().enabled = false;
 
-        GetComponentInChildren<MeshRenderer>().enabled = false; // Desativa o componente MeshRenderer
+        // Destrói o objeto após 1 segundo
+        Destroy(gameObject, 1.0f);
+    }
 
-        Destroy(gameObject, 1.0f); // Destrói o objeto após 1 segundo
+    void OnSceneUnloaded(Scene scene)
+    {
+        ScoreManager.Reset();
+    }
+
+    void OnDestroy()
+    {
+        // Certifique-se de cancelar a inscrição dos eventos para evitar possíveis problemas
+        SceneManager.sceneUnloaded -= OnSceneUnloaded;
     }
 }
