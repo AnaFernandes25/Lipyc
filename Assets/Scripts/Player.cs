@@ -62,7 +62,7 @@ public class Player : MonoBehaviour
         ResetJump();
         //LoadCheckpoint();
 
-        transform.position = ultimocheck.ultimo;
+        //transform.position = ultimocheck.ultimo;
         
     }
 

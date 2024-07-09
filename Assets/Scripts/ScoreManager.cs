@@ -8,7 +8,6 @@ public class ScoreManager : MonoBehaviour
     private static TMP_Text textoPontuacao;
     private static int score;
 
-    // Start is called before the first frame update
     void Start()
     {
         textoPontuacao = GetComponent<TMP_Text>();
@@ -19,15 +18,14 @@ public class ScoreManager : MonoBehaviour
             score = 0;
         }
 
-        textoPontuacao.text = "" + score; //Falta melhorar o estilo
+        textoPontuacao.text = score.ToString(); // Melhorando a conversão para string
     }
+
     public static void AddPoints(int points)
     {
         score += points;
-
         PlayerPrefs.SetInt("score", score);
-
-        textoPontuacao.text = "" + score; // falta melhorar o estilo
+        textoPontuacao.text = score.ToString(); // Melhorando a conversão para string
     }
 
     public static int GetPoints()
@@ -38,15 +36,10 @@ public class ScoreManager : MonoBehaviour
     public static void Reset()
     {
         score = 0;
-
         PlayerPrefs.SetInt("score", score);
-
-        textoPontuacao.text = "" + score; // falta melhorar o estilo
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
+        if (textoPontuacao != null)
+        {
+            textoPontuacao.text = score.ToString(); // Melhorando a conversão para string
+        }
     }
 }
