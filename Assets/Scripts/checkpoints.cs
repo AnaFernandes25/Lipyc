@@ -1,26 +1,17 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Security.Cryptography.X509Certificates;
 using UnityEngine;
 
 public class checkpoints : MonoBehaviour
 {
 
-    [SerializeField] GameObject player;
-    [SerializeField] List<GameObject> checkPoints;
-    [SerializeField] Vector3 novoCheckPoint;
-    [SerializeField] float dead;
-
-    void Update()
-    {
-        if(player.transform.position.y > -dead)
-        {
-            player.transform.position = novoCheckPoint;
-        }
-
-    }
     private void OnTriggerEnter(Collider col)
     {
-        novoCheckPoint = player.transform.position;
-        Destroy(col.gameObject);
+        if(col.gameObject.CompareTag("Player"))
+        {
+            col.GetComponent<Ultimocheck>().ultimo = GetComponent<Transform>().position;
+        }
     }
 }

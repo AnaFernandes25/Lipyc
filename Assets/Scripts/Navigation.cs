@@ -25,7 +25,7 @@ public class Navigation : MonoBehaviour
         target = GameObject.FindGameObjectWithTag("Player");
         currentHealth = maxHealth; // Set current health to maximum health when the enemy spawns
 
-        // Inicia na animação de idle
+        // Inicia na animaÃ§ao de idle
         anim.SetBool("IsWalking", false);
     }
 
@@ -48,7 +48,7 @@ public class Navigation : MonoBehaviour
             StopEnemy();
         }
 
-        // Atualiza a animação de acordo com o estado do agente
+        // Atualiza a animaï¿½ï¿½o de acordo com o estado do agente
         if (agent.velocity.magnitude > 0)
         {
             anim.SetBool("IsWalking", true);

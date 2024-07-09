@@ -31,7 +31,6 @@ public class Player : MonoBehaviour
     [Header("Health and Respawn")]
     public int vidasIniciais = 3;
     public List<Image> vidas;
-    public Transform respawnPoint;
 
     [Header("Level Loading")]
     public string nivelACarregarLost;
@@ -46,6 +45,8 @@ public class Player : MonoBehaviour
     private float originalSpeed;
     private Coroutine waterDamageCoroutine;
     private Vector3 checkpointPosition;
+    public Transform player;
+    private Ultimocheck ultimocheck;
 
     void Start()
     {
@@ -59,8 +60,10 @@ public class Player : MonoBehaviour
         }
 
         ResetJump();
-        LoadCheckpoint();
-        transform.position = checkpointPosition;
+        //LoadCheckpoint();
+
+        transform.position = ultimocheck.ultimo;
+        
     }
 
     void Update()
@@ -190,11 +193,11 @@ public class Player : MonoBehaviour
         {
             HandleDamage();
         }
-        if (collision.gameObject.CompareTag("Checkpoint"))
+        /*if (collision.gameObject.CompareTag("Checkpoint"))
         {
             checkpointPosition = collision.transform.position;
-            SaveCheckpoint();
-        }
+            //SaveCheckpoint();
+        }*/
     }
 
     void OnCollisionExit(Collision collision)
@@ -211,10 +214,11 @@ public class Player : MonoBehaviour
         //{
         //    HandleDamage();
         //}
+        
         if (other.CompareTag("Checkpoint"))
         {
-            checkpointPosition = other.transform.position;
-            SaveCheckpoint();
+            ultimocheck.ultimo = other.transform.position;
+            
         }
         else if (other.CompareTag("agua"))
         {
@@ -263,12 +267,11 @@ public class Player : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
-    private void SaveCheckpoint()
+    /*private void SaveCheckpoint()
     {
-        PlayerPrefs.SetFloat("CheckpointX", checkpointPosition.x);
-        PlayerPrefs.SetFloat("CheckpointY", checkpointPosition.y);
-        PlayerPrefs.SetFloat("CheckpointZ", checkpointPosition.z);
-        PlayerPrefs.Save();
+        if(col.gameObject.CompareTag("Player"))
+        Player.transform.position = respawnPoint.transform.position;
+        Physics.SyncTransforms();//Isto faz update dos transforms
     }
 
     private void LoadCheckpoint()
@@ -284,5 +287,5 @@ public class Player : MonoBehaviour
         {
             checkpointPosition = respawnPoint.position;
         }
-    }
+    }*/
 }
