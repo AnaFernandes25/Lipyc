@@ -400,7 +400,8 @@ PrefabInstance:
       value: Moon
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 65702495048144492, guid: 798443feee277584eb56d372894087c3, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 798443feee277584eb56d372894087c3, type: 3}
