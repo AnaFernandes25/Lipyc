@@ -160,7 +160,7 @@ MonoBehaviour:
   bulletSpawnPoint: {fileID: 5880908874977564757}
   bulletPrefab: {fileID: 2420476143727458436, guid: 86a41abfe1cceb8429b7d6dfec7d0531, type: 3}
   bulletSpeed: 10
-  playerTransform: {fileID: 7151451717596510384}
+  playerTransform: {fileID: 1187434297060523660}
 --- !u!1 &413259530802418352
 GameObject:
   m_ObjectHideFlags: 0
@@ -830,7 +830,7 @@ MonoBehaviour:
   nivelACarregarLost: 
   nivelACarregarWin: 
   totalRewards: 3
-  player: {fileID: 0}
+  player: {fileID: 46315666565395151}
 --- !u!1 &7956776382158722035
 GameObject:
   m_ObjectHideFlags: 0
