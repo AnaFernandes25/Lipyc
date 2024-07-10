@@ -21451,7 +21451,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.8
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -33685,7 +33685,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 78440713284493564, guid: 77eccd12cbcb4ee4bba1fe9dffaa9747, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -1e-45
+      value: 1e-45
       objectReference: {fileID: 0}
     - target: {fileID: 78440713284493564, guid: 77eccd12cbcb4ee4bba1fe9dffaa9747, type: 3}
       propertyPath: m_LocalRotation.z
@@ -33713,11 +33713,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1532121616636190344, guid: 77eccd12cbcb4ee4bba1fe9dffaa9747, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.00000001463662
+      value: 0.00000001463662
       objectReference: {fileID: 0}
     - target: {fileID: 1532121616636190344, guid: 77eccd12cbcb4ee4bba1fe9dffaa9747, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.0000000090459285
+      value: -0.0000000090459285
       objectReference: {fileID: 0}
     - target: {fileID: 4372483345146449616, guid: 77eccd12cbcb4ee4bba1fe9dffaa9747, type: 3}
       propertyPath: m_Follow
@@ -33789,15 +33789,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8136652502408984680, guid: 77eccd12cbcb4ee4bba1fe9dffaa9747, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.42284438
+      value: 0.4228444
       objectReference: {fileID: 0}
     - target: {fileID: 8136652502408984680, guid: 77eccd12cbcb4ee4bba1fe9dffaa9747, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.00000003819357
+      value: 2.228022e-15
       objectReference: {fileID: 0}
     - target: {fileID: 8136652502408984680, guid: 77eccd12cbcb4ee4bba1fe9dffaa9747, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.000000017821558
+      value: -4.3954048e-16
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -34037,11 +34037,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2939445943213096306, guid: ec819de5164e6a144afdee466a76ea29, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.000000019362428
+      value: 0.000000019362428
       objectReference: {fileID: 0}
     - target: {fileID: 2939445943213096306, guid: ec819de5164e6a144afdee466a76ea29, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.000000011966639
+      value: -0.000000011966639
       objectReference: {fileID: 0}
     - target: {fileID: 2939445943213096306, guid: ec819de5164e6a144afdee466a76ea29, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
