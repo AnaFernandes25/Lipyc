@@ -1,7 +1,9 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.SceneManagement;
 
 public class Navigation : MonoBehaviour
 {
@@ -16,6 +18,7 @@ public class Navigation : MonoBehaviour
     GameObject target;
     private NavMeshAgent agent;
     Animator anim;
+    private int count = 0;
 
     // Start is called before the first frame update
     private void Start()
@@ -27,6 +30,7 @@ public class Navigation : MonoBehaviour
 
         // Inicia na animaçao de idle
         anim.SetBool("IsWalking", false);
+        
     }
 
     // Update is called once per frame
@@ -97,9 +101,23 @@ public class Navigation : MonoBehaviour
         }
     }
 
-    private void Die()
+    public void Die()
     {
-        // Implement death behavior here, such as playing death animation, dropping loot, etc.
-        Destroy(gameObject); // Destroy the enemy object when it dies
+        Destroy(gameObject);
+        SceneManager.LoadScene("nivel2");
+    }
+    public void OnCollisionEnter(Collision collision)
+    {
+        
+        if (collision.gameObject.CompareTag("bullet"))
+        {
+            count = count + 1;
+            Debug.Log(count);
+            if(count == 5)
+            {
+                SceneManager.LoadScene("Nivel2");
+            }
+            
+        }
     }
 }
