@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
@@ -23,6 +22,8 @@ public class DialogueControl : MonoBehaviour
         profile.sprite = p;
         sentences = txt;
         actorNameText.text = actorName;
+        speechText.text = ""; // Clear previous text
+        index = 0; // Reset sentence index
         StartCoroutine(TypeSentence());
     }
 
@@ -37,20 +38,19 @@ public class DialogueControl : MonoBehaviour
 
     public void NextSentence()
     {
-        if(speechText.text == sentences[index])
+        if (speechText.text == sentences[index])
         {
-            //se ainda há textos
-            if(index < sentences.Length - 1)
+            if (index < sentences.Length - 1)
             {
                 index++;
                 speechText.text = "";
                 StartCoroutine(TypeSentence());
             }
-            else //quandoa acaba os textos
+            else
             {
                 speechText.text = "";
                 index = 0;
-                dialogueObj?.SetActive(false);
+                dialogueObj.SetActive(false);
             }
         }
     }

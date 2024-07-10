@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Dialogue : MonoBehaviour
@@ -9,10 +7,10 @@ public class Dialogue : MonoBehaviour
     public string actorName;
 
     public LayerMask playerLayer;
-    public float radious;
+    public float radius;
 
     private DialogueControl dc;
-    bool onRadious;
+    private bool onRadius;
 
     private void Start()
     {
@@ -26,29 +24,34 @@ public class Dialogue : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && onRadious)
+        if (Input.GetKeyDown(KeyCode.Space) && onRadius)
         {
             dc.Speech(profile, speechTxt, actorName);
         }
+
+        if (Input.GetKeyDown(KeyCode.Return) && dc.dialogueObj.activeSelf)
+        {
+            dc.NextSentence();
+        }
     }
 
-    public void Interact()
+    private void Interact()
     {
-        Collider2D hit = Physics2D.OverlapCircle(transform.position, radious, playerLayer);
+        Collider2D hit = Physics2D.OverlapCircle(transform.position, radius, playerLayer);
 
         if (hit != null)
         {
-            onRadious = true;
-
+            onRadius = true;
         }
         else
         {
-            onRadious= false;
+            onRadius = false;
         }
     }
 
     private void OnDrawGizmosSelected()
     {
-        Gizmos.DrawWireSphere(transform.position, radious);
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, radius);
     }
 }
