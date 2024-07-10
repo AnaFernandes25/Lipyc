@@ -217,4 +217,5 @@ public class MenuController : MonoBehaviour
         effectVol.value = configs.EffectsVolume;
         musicsVol.value = configs.MusicVolume;
     }
+
 }
