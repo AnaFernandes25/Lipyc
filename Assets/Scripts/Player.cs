@@ -61,9 +61,6 @@ public class Player : MonoBehaviour
 
         ResetJump();
         //LoadCheckpoint();
-
-        
-        
     }
 
     void Update()
@@ -258,6 +255,8 @@ public class Player : MonoBehaviour
 
         if (vidasIniciais == 0)
         {
+            // Chama o método Reset do ScoreManager quando o player morre
+            ScoreManager.Reset();
             ReloadScene();
         }
     }
