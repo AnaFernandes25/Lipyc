@@ -9,6 +9,7 @@ public class Powerup : MonoBehaviour
 
     private void OnTriggerEnter(Collider collision)
     {
+        Destroy(gameObject);
         powerupEffect.Apply(collision.gameObject);
     }
 
