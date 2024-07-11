@@ -30,4 +30,9 @@ public class MenuScene : MonoBehaviour
         SceneManager.LoadScene("Creditos");
     }
 
+    public void Intro()
+    {
+        SceneManager.LoadScene("intro");
+    }
+
 }
