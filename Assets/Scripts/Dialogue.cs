@@ -24,7 +24,7 @@ public class Dialogue : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && onRadius)
+        if (Input.GetKeyDown(KeyCode.E) && onRadius)
         {
             dc.Speech(profile, speechTxt, actorName);
         }
