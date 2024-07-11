@@ -2239,7 +2239,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.067, y: 0.4574773}
   m_AnchorMax: {x: 0.5175975, y: 0.5453638}
-  m_AnchoredPosition: {x: -1, y: -58}
+  m_AnchoredPosition: {x: -1, y: -55.09999}
   m_SizeDelta: {x: 1, y: -1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &312367355
@@ -2348,6 +2348,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d7559e321c3f0343b82e3ece9e80f55, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  res: {fileID: 0}
+  menu: {fileID: 0}
+  sair: {fileID: 0}
 --- !u!1 &312461939
 GameObject:
   m_ObjectHideFlags: 0
@@ -2928,7 +2931,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.067, y: 0.2161591}
   m_AnchorMax: {x: 0.5175975, y: 0.30136365}
-  m_AnchoredPosition: {x: -1, y: -13.999985}
+  m_AnchoredPosition: {x: -1, y: -11.099976}
   m_SizeDelta: {x: 1, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &430865303
@@ -3049,7 +3052,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.067, y: 0.3353182}
   m_AnchorMax: {x: 0.5175975, y: 0.4206364}
-  m_AnchoredPosition: {x: -1, y: 29}
+  m_AnchoredPosition: {x: -1, y: 31.90001}
   m_SizeDelta: {x: 1, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &432868342
@@ -5226,7 +5229,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.067, y: 0.57931817}
   m_AnchorMax: {x: 0.5175975, y: 0.6646819}
-  m_AnchoredPosition: {x: -1, y: -14}
+  m_AnchoredPosition: {x: -1, y: -11.1}
   m_SizeDelta: {x: 1, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &774546337
@@ -5275,7 +5278,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 774546340}
         m_TargetAssemblyTypeName: MenuScene, Assembly-CSharp
-        m_MethodName: LoadScene
+        m_MethodName: Intro
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -5335,6 +5338,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d7559e321c3f0343b82e3ece9e80f55, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  res: {fileID: 0}
+  menu: {fileID: 0}
+  sair: {fileID: 0}
 --- !u!1 &787454984
 GameObject:
   m_ObjectHideFlags: 0
@@ -10090,6 +10096,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d7559e321c3f0343b82e3ece9e80f55, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  res: {fileID: 0}
+  menu: {fileID: 0}
+  sair: {fileID: 0}
 --- !u!114 &1623247535
 MonoBehaviour:
   m_ObjectHideFlags: 0
