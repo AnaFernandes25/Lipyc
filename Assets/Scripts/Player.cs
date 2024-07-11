@@ -67,7 +67,7 @@ public class Player : MonoBehaviour
     {
         Cursor.visible = false;
         // Ground check
-        grounded = Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.5f + 0.3f, whatIsGround);
+        grounded = Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.8f + 0.6f, whatIsGround);
 
         MyInput();
         SpeedControl();

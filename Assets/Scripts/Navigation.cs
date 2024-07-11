@@ -115,7 +115,7 @@ public class Navigation : MonoBehaviour
             Debug.Log(count);
             if(count == 5)
             {
-                SceneManager.LoadScene("Nivel2");
+                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
             }
             
         }
