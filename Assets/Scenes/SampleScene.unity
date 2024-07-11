@@ -4569,7 +4569,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 284500989}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1409646516}
+        m_TargetAssemblyTypeName: MenuScene, Assembly-CSharp
+        m_MethodName: Restart
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &284500989
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6171,6 +6183,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fb1b0e25fc9f42240a4783f0e06cc23d, type: 3}
+--- !u!1 &383332094 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 137472795384335446, guid: 77eccd12cbcb4ee4bba1fe9dffaa9747, type: 3}
+  m_PrefabInstance: {fileID: 1443286560900995070}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &395859420
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8815,7 +8832,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 605819225}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1409646516}
+        m_TargetAssemblyTypeName: MenuScene, Assembly-CSharp
+        m_MethodName: Creditos
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &605819225
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13591,7 +13620,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 892763538}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1409646516}
+        m_TargetAssemblyTypeName: MenuScene, Assembly-CSharp
+        m_MethodName: Menu
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &892763538
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21148,6 +21189,7 @@ GameObject:
   - component: {fileID: 1409646513}
   - component: {fileID: 1409646515}
   - component: {fileID: 1409646514}
+  - component: {fileID: 1409646516}
   m_Layer: 5
   m_Name: GameOverScreen
   m_TagString: Untagged
@@ -21215,6 +21257,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1409646512}
   m_CullTransparentMesh: 1
+--- !u!114 &1409646516
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1409646512}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d7559e321c3f0343b82e3ece9e80f55, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  res: {fileID: 284500988}
+  menu: {fileID: 892763537}
+  sair: {fileID: 605819224}
 --- !u!1 &1411845769
 GameObject:
   m_ObjectHideFlags: 0
@@ -33673,7 +33730,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 78440713284493564, guid: 77eccd12cbcb4ee4bba1fe9dffaa9747, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -1e-45
+      value: 1e-45
       objectReference: {fileID: 0}
     - target: {fileID: 78440713284493564, guid: 77eccd12cbcb4ee4bba1fe9dffaa9747, type: 3}
       propertyPath: m_LocalRotation.z
@@ -33777,15 +33834,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8136652502408984680, guid: 77eccd12cbcb4ee4bba1fe9dffaa9747, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.4228444
+      value: 0.42284438
       objectReference: {fileID: 0}
     - target: {fileID: 8136652502408984680, guid: 77eccd12cbcb4ee4bba1fe9dffaa9747, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -2.228022e-15
+      value: 0.00000003819357
       objectReference: {fileID: 0}
     - target: {fileID: 8136652502408984680, guid: 77eccd12cbcb4ee4bba1fe9dffaa9747, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 4.3954048e-16
+      value: -0.000000017821558
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -33853,6 +33910,14 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1951882485}
     - target: {fileID: 8102174431642634967, guid: 4c7150141cbe867449d8e60d5031902f, type: 3}
+      propertyPath: freelookC
+      value: 
+      objectReference: {fileID: 383332094}
+    - target: {fileID: 8102174431642634967, guid: 4c7150141cbe867449d8e60d5031902f, type: 3}
+      propertyPath: jumpForce
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8102174431642634967, guid: 4c7150141cbe867449d8e60d5031902f, type: 3}
       propertyPath: mainCamera
       value: 
       objectReference: {fileID: 172293562}
@@ -33860,6 +33925,14 @@ PrefabInstance:
       propertyPath: respawnPoint
       value: 
       objectReference: {fileID: 1107044097}
+    - target: {fileID: 8102174431642634967, guid: 4c7150141cbe867449d8e60d5031902f, type: 3}
+      propertyPath: airMultiplier
+      value: 1.14
+      objectReference: {fileID: 0}
+    - target: {fileID: 8102174431642634967, guid: 4c7150141cbe867449d8e60d5031902f, type: 3}
+      propertyPath: gameOverScreen
+      value: 
+      objectReference: {fileID: 1409646512}
     - target: {fileID: 8102174431642634967, guid: 4c7150141cbe867449d8e60d5031902f, type: 3}
       propertyPath: vidas.Array.data[0]
       value: 

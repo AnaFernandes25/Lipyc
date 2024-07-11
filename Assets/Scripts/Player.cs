@@ -1,5 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Build.Content;
+using UnityEditor.Callbacks;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -47,6 +49,9 @@ public class Player : MonoBehaviour
     private Vector3 checkpointPosition;
     public Transform player;
     private Ultimocheck ultimocheck;
+    public GameObject gameOverScreen;
+    private MeshRenderer meshRenderer;
+    private Collider playerCollider;
 
     void Start()
     {
@@ -61,11 +66,12 @@ public class Player : MonoBehaviour
 
         ResetJump();
         //LoadCheckpoint();
+        Cursor.visible = false;
     }
 
     void Update()
     {
-        Cursor.visible = false;
+        
         // Ground check
         grounded = Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.8f + 0.6f, whatIsGround);
 
@@ -256,10 +262,29 @@ public class Player : MonoBehaviour
 
         if (vidasIniciais == 0)
         {
-            // Chama o método Reset do ScoreManager quando o player morre
-            ScoreManager.Reset();
-            ReloadScene();
+            GameOver();
         }
+    }
+    private void GameOver()
+    {
+        // Desativar a mesh e o movimento do jogador
+        if (meshRenderer != null)
+        {
+            meshRenderer.enabled = false;
+        }
+
+        if (playerCollider != null)
+        {
+            playerCollider.enabled = false;
+        }
+
+        // Exibir a tela de game over
+        if (gameOverScreen != null)
+        {
+            gameOverScreen.SetActive(true);
+        }
+        Cursor.visible = true;
+        ScoreManager.Reset();
     }
 
     private void ReloadScene()
